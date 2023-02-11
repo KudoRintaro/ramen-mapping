@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.references :favorite_shop, foreigin_key: true
       t.string :name, null: false
       t.string :kana, null: false
-      t.intger :status, null: false, default: 1
+      t.integer :status, null: false, default: 1
       t.timestamps null: false
     end
 
