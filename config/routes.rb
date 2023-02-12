@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "public/registrations",
+    sessions: "public/sessions"
+  }
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    sessions: "admin/sessions"
+  }
 
    scope module: :public do
     root to: "homes#top"
@@ -21,12 +26,12 @@ Rails.application.routes.draw do
       member do
         get "/withdraw" => "users#confirm_withdraw"
         patch "/withdraw" => "users#withdraw"
-      end 
+      end
     end
     resources :genres, only: [:index, :create, :destroy]
     resources :shops, :except => [:create, :destroy]
     resources :comments, only: [:index, :show, :destroy]
-  end 
+  end
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

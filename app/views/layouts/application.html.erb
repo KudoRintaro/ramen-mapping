@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <%#ヘッダー部分%>
+    <header>
+     <span>
+      <h2 class="logo">ラーメンマッピング</h2>
+     </span>
+     <%#メニューバー部分%>
+     <nav>
+       <ul>
+         <li>
+           <%= link_to "新規会員登録", new_user_registration_path, class:"list-box" %>
+         </li>
+         <li>
+           <%= link_to "会員ログイン", new_user_session_path, class:"list-box"  %>
+         </li>
+       </ul>
+     </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

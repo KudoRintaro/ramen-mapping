@@ -1,29 +1,45 @@
-<h2>Sign up</h2>
+<div class="registration-box">
+  <h2 class="registration-title">会員新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "publics/shared/error_messages", resource: resource %>
+ <div class="signup-box">
+   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "publics/shared/links" %>
+     <table>
+       <tr class="registration-field">
+         <td>
+           <%= f.label :name, "名前" %>
+           <%= f.text_field :name, placeholder: "拉麺太郎", autofocus: true, size: 25, class:"registration-form" %>
+         </td>
+       </tr>
+       <tr class="registration-field">
+         <td>
+           <%= f.label :kana, "フリガナ" %>
+           <%= f.text_field :kana, placeholder: "ラーメンタロウ", size: 25, class:"registration-form" %>
+         </td>
+       </tr>
+       <tr class="registration-field">
+         <td>
+           <%= f.label :email, "Eメールアドレス" %>
+           <%= f.text_field :email, placeholder: "xxxx@xxxxx", size: 25, class:"registration-form" %>
+         </td>
+       </tr>
+       <tr class="registration-field">
+         <td>
+           <%= f.label :password, "パスワード" %>
+           <%= f.text_field :password, placeholder: "パスワード", class:"registration-form" %>
+         </td>
+       </tr>
+       <tr class="registration-field">
+         <td>
+           <%= f.label :image, "プロフィール画像(任意)" %>
+          <%= f.file_field :image, accept: "image/*", class:"registration-form" %>
+         </td>
+       </tr>
+       <tr c;ass="registration-field">
+         <td><%= f.submit "会員登録", class:"registration-button" %></td>
+       </tr>
+     </table>
+    <% end %>
+ </div>
+</div>

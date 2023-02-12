@@ -1,0 +1,40 @@
+/*登録画面レイアウト*/
+.registration-box{
+  width: 100%;
+}
+
+.registration-title{
+  display: block;
+  width: 200px;
+  margin-top: 100px;
+  margin-left: 500px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.signup-box{
+  width: 700px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+table{
+  margin: auto;
+}
+
+.registration-form{
+  display: block;
+  margin-left: 0;
+}
+
+.registration-button{
+  display: block;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  color: black;
+  text-decoration: none;
+  background-color: #FF6600;
+}
