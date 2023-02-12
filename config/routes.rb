@@ -17,8 +17,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "" => "homes#top"
-  end
-
+    resources :users, :except => :destroy do
+      member do
+        get "/withdraw" => "users#confirm_withdraw"
+        patch "/withdraw" => "users#withdraw"
+      end 
+    end
+    resources :genres, only: [:index, :create, :destroy]
+    resources :shops, :except => [:create, :destroy]
+    resources :comments, only: [:index, :show, :destroy]
+  end 
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
