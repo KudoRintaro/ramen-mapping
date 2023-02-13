@@ -27,7 +27,7 @@
        <tr class="registration-field">
          <td>
            <%= f.label :password, "パスワード" %>
-           <%= f.text_field :password, placeholder: "パスワード", class:"registration-form" %>
+           <%= f.text_field :password, placeholder: "パスワード", size: 25, class:"registration-form" %>
          </td>
        </tr>
        <tr class="registration-field">
@@ -36,7 +36,7 @@
           <%= f.file_field :image, accept: "image/*", class:"registration-form" %>
          </td>
        </tr>
-       <tr c;ass="registration-field">
+       <tr class="registration-field">
          <td><%= f.submit "会員登録", class:"registration-button" %></td>
        </tr>
      </table>

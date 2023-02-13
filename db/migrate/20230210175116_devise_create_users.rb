@@ -33,8 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
       t.references :comment, foreign_key: true
       t.references :favorite_shop, foreigin_key: true
-      t.string :name, null: false
-      t.string :kana, null: false
+      t.string :name
+      t.string :kana
       t.integer :status, null: false, default: 1
       t.timestamps null: false
     end

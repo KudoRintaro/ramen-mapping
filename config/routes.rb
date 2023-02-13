@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     patch "users/infomation/edit" => "users#update"
     get "/withdraw" => "users#confirm_withdraw"
     patch "/withdraw" => "users#withdraw"
-    resources :genres, only: [:index, :create]
+    resources :genres, only: [:new, :create]
     resources :favorite_shops, only: [:index, :create]
     resources :comments, only: [:create, :destroy]
   end

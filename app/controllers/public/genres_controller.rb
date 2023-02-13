@@ -1,5 +1,5 @@
 class Public::GenresController < ApplicationController
-  def index
+  def new
   end
 
   def create

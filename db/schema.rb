@@ -106,8 +106,8 @@ ActiveRecord::Schema.define(version: 2023_02_10_180435) do
     t.datetime "remember_created_at"
     t.integer "comment_id"
     t.integer "favorite_shop_id"
-    t.string "name", null: false
-    t.string "kana", null: false
+    t.string "name"
+    t.string "kana"
     t.integer "status", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
