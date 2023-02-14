@@ -11,10 +11,12 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :shops, :except => :destroy
     get "users/my_page" => "users#show"
-    get "users/infomation/edit" => "users#edit"
-    patch "users/infomation/edit" => "users#update"
-    get "/withdraw" => "users#confirm_withdraw"
-    patch "/withdraw" => "users#withdraw"
+    get "users/information/edit" => "users#edit"
+    get "users/shops" =>"users#index"
+    patch "users/information/edit" => "users#update"
+    get "users/withdraw" => "users#confirm_withdraw"
+    patch "users/withdraw" => "users#withdraw"
+    get "users/comments" => "users#comments"
     resources :genres, only: [:new, :create]
     resources :favorite_shops, only: [:index, :create]
     resources :comments, only: [:create, :destroy]

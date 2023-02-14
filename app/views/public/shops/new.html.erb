@@ -1,2 +1,37 @@
-<h1>Public::Shops#new</h1>
-<p>Find me in app/views/public/shops/new.html.erb</p>
+<h2 class="new-shop-title">店舗登録</h2>
+
+<%#入力フォーム%>
+ <%= form_with model: @shop do |f| %>
+  <table class="new-shop-table">
+    <tr>
+      <td><%= f.label :name, "店名" %></td>
+      <td><%= f.text_field :name, class:"new-shop-form" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :location, "所在地" %></td>
+      <td><%= f.text_field :location %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :genre_id, "ジャンル" %></td>
+      <td><%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "--選択してください--"} %></td>
+    </tr>
+    <tr>
+     <td><%= f.label :business_start_hours, "営業開始時間" %></td>
+     <td><%= f.time_select :business_start_hours %><td>
+    </tr>
+    <tr>
+     <td><%= f.label :business_finish_hours, "営業終了時間" %></td>
+     <td><%= f.time_select :business_finish_hours %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :holiday, "休業日" %></td>
+      <td><%= f.select :holiday, {"月曜日": 0, "火曜日": 1, "水曜日": 2, "木曜日": 3, "金曜日": 4, "土曜日": 5, "日曜日": 6}, {include_blank: "選択してください"} %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :image, "店舗画像" %></td>
+      <td><%= f.file_field :image, accept: "image/*" %></td>
+    </tr>
+  </table>
+  <%= f.submit "登録", class:"new-shop-button" %>
+ <% end %>
+

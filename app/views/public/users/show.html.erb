@@ -1,2 +1,36 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<h2 class="show-user-title">会員情報</h2>
+<%#会員情報%>
+<table class="show-user-table">
+  <tr>
+    <td>プロフィール画像</td>
+    <td><%= image_tag current_user.image, size: "90x100" %></td>
+  </tr>
+  <tr>
+    <td>名前</td>
+    <td><%= current_user.name %></td>
+  </tr>
+  <tr>
+    <td>フリガナ</td>
+    <td><%= current_user.kana %></td>
+  </tr>
+  <tr>
+    <td>Eメールアドレス</td>
+    <td><%= current_user.email %></td>
+  </tr>
+</table>
+<%#各種リンクボタン%>
+<div class="show-user-link-box">
+  <div class="show-user-link-button">
+   <%= link_to "お気に入り一覧", favorite_shops_path, class:"show-user-link-button-text" %>
+  </div>
+  <div class="show-user-link-button">
+   <%= link_to "登録した店舗一覧", users_shops_path, class:"show-user-link-button-text" %>
+  </div>
+  <div class="show-user-link-button">
+   <%= link_to "レビュー・コメント一覧", users_comments_path, class:"show-user-link-button-text" %>
+  </div>
+</div>
+<%#会員情報編集ボタン%>
+<div class="show-user-edit-button">
+  <%= link_to "会員情報編集", users_information_edit_path, class:"show-user-edit-button-text" %>
+</div>

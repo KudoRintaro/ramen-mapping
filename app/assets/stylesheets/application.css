@@ -35,6 +35,12 @@ header{
   font-size: 30px;
   text-shadow: 5px 3px 3px #888888;
 }
+/*ログインステータス*/
+.login-status-text{
+  display: block;
+  margin-left: 500px;
+  font-size: 30px;
+}
 /*メニューバーレイアウト*/
 nav{
   margin: 0 20px 0 auto;
@@ -42,16 +48,17 @@ nav{
 
 ul{
   display: flex;
+  margin-bottom: 30px;
 }
 
 li{
   list-style: none;
-  padding-right: 30px;
-  background-color: gra;
+  height: 25px;
+  margin-right: 25px;
 }
 
 .list-box{
-  height: 25px;
+  display: block;
   background-color: gray;
   text-decoration: none;
   color: black;

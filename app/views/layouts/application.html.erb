@@ -16,11 +16,9 @@
       <h2 class="logo">ラーメンマッピング</h2>
      <%#ログインステータス%>
      <% if user_signed_in? %>
-     <div class="login-status">
-       <span>
-         <h4 class="login-status-text">ログイン中：<%= current_user.name %></h4>
-       </span>
-     </div>
+      <h4 class="login-status-text">ログイン中：<%= current_user.name %></h4>
+     <% else %>
+      <h4 class="login-status-text">ゲストログイン中</h4>
      <% end %>
      <%#メニューバー部分%>
      <nav>

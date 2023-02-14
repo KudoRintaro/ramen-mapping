@@ -6,8 +6,9 @@ class CreateShops < ActiveRecord::Migration[6.1]
       t.references :comment, foreign_key: true, null: true
       t.string :name, null: false
       t.string :location, null: false
-      t.time :business_hours, null: false
-      t.string :holiday, null: false
+      t.time :business_start_hours, null: false
+      t.time :business_finish_hours, null: false
+      t.integer :holiday, null: false
       t.float :atmosphere_rate
       t.float :servise_rate
       t.float :taste_rate

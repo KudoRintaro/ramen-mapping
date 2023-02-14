@@ -5,15 +5,25 @@
 </div>
 <%#ログインボタン各種%>
 <div class="login-list">
- <%= link_to shops_path, class:"button" do %>
-  <p>ゲストログイン</p>
- <% end %>
+ <% if user_signed_in? %>
 
- <%= link_to new_user_registration_path, class:"button" do %>
-  <p>新規会員登録</p>
- <% end %>
+  <%= link_to destroy_user_session_path(current_user),method: :delete, class:"button" do %>
+   <P>ログアウト</P>
+  <% end %>
 
- <%= link_to new_user_session_path, class:"button" do %>
-  <p>会員ログイン</p>
+ <% else %>
+
+  <%= link_to shops_path, class:"button" do %>
+   <p>ゲストログイン</p>
+  <% end %>
+
+  <%= link_to new_user_registration_path, class:"button" do %>
+   <p>新規会員登録</p>
+  <% end %>
+
+  <%= link_to new_user_session_path, class:"button" do %>
+   <p>会員ログイン</p>
+  <% end %>
+
  <% end %>
 </div>

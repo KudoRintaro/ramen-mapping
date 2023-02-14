@@ -1,6 +1,12 @@
 class Public::UsersController < ApplicationController
   def show
   end
+  
+  def index
+  end
+  
+  def comments
+  end 
 
   def edit
   end
