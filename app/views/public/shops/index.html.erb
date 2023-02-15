@@ -2,3 +2,53 @@
 <div class="index-shop-map-api">
   <%= image_tag "244467-01.jpg", size: "1919x600" %>
 </div>
+
+<%#店舗一覧表示部(人気順)%>
+<h2 class="index-shop-title">店舗一覧</h2>
+<% @shops.each do |shop| %>
+<div class="index-shop-card">
+ <div class="index-shop-image">
+  <%= image_tag shop.image, size: "200x100" %>
+ </div>
+ <%#店舗情報表示部%>
+ <table class="index-shop-info-table">
+   <tr>
+     <td>店名</td>
+     <td><%= shop.name %></td>
+   </tr>
+   <tr>
+     <td>所在地</td>
+     <td><%= shop.location %></td>
+   </tr>
+   <tr>
+     <td>ジャンル</td>
+     <td><%= shop.genre.name %></td>
+   </tr>
+   <tr>
+     <td>営業時間</td>
+     <td><%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></td>
+   </tr>
+ </table>
+ <%#店舗評価表示部%>
+ <table class="index-shop-rate-table">
+   <tr>
+     <td>お店の雰囲気</td>
+     <td><%#raty表示部%></td>
+   </tr>
+   <tr>
+     <td>接客</td>
+     <td><%#raty表示部%></td>
+   </tr>
+   <tr>
+     <td>味</td>
+     <td><%#raty表示部%></td>
+   </tr>
+   <tr>
+     <td>混雑度</td>
+     <td><%#raty表示部%></td>
+   </tr>
+ </table>
+ <%#お気に入り登録ボタン%>
+ <%= render "public/favorite_shops/favorite", shop: shop %>
+</div>
+<% end %>

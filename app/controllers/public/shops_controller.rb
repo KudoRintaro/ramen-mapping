@@ -10,9 +10,11 @@ class Public::ShopsController < ApplicationController
   end
 
   def index
+    @shops=Shop.all
   end
 
   def show
+    @shop=Shop.find(params[:id])
   end
 
   def edit
@@ -24,6 +26,6 @@ class Public::ShopsController < ApplicationController
   private
 
   def shop_new_params
-    params.require(:shop).permit(:user_id, :genre_id, :name, :business_start_hours, :business_finish_hours, :holiday, :location, :status, :image)
+    params.require(:shop).permit(:user_id, :genre_id, :name, :business_start_hours, :business_finish_hours, :holiday, :location, :image)
   end
 end

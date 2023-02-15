@@ -6,22 +6,23 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-
+#会員側ルーティング
    scope module: :public do
     root to: "homes#top"
     resources :shops, :except => :destroy
     get "users/my_page" => "users#show"
     get "users/information/edit" => "users#edit"
+    patch "users/information" => "users#update"
+    put "users/information" => "users#update"
     get "users/shops" =>"users#index"
-    patch "users/information/edit" => "users#update"
     get "users/withdraw" => "users#confirm_withdraw"
     patch "users/withdraw" => "users#withdraw"
     get "users/comments" => "users#comments"
     resources :genres, only: [:new, :create]
-    resources :favorite_shops, only: [:index, :create]
+    resources :favorite_shops, only: [:index, :create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
-
+#管理者側ルーティング
   namespace :admin do
     get "" => "homes#top"
     resources :users, :except => :destroy do

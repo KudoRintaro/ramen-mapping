@@ -35,3 +35,34 @@
   font-size: 15px;
   background-color: #FF6600;
 }
+
+//店舗詳細画面タイトル
+.show-shop-title{
+  display: block;
+  width: 200px;
+  margin-top: 100px;
+  margin-left: 500px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.show-shop-table{
+   margin: auto;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+.show-shop-link-button{
+  display: block;
+  width: 200px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #FF6600;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+//店舗一覧ページレイアウト

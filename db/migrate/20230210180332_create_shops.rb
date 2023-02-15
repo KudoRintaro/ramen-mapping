@@ -8,12 +8,11 @@ class CreateShops < ActiveRecord::Migration[6.1]
       t.string :location, null: false
       t.time :business_start_hours, null: false
       t.time :business_finish_hours, null: false
-      t.integer :holiday, null: false
+      t.string :holiday, null: false
       t.float :atmosphere_rate
       t.float :servise_rate
       t.float :taste_rate
       t.float :congestion_rate
-      t.integer :status, null: false
       t.integer :favorite_users_count
 
       t.timestamps

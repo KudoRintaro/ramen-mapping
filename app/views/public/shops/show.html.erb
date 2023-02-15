@@ -1,2 +1,34 @@
-<h1>Public::Shops#show</h1>
-<p>Find me in app/views/public/shops/show.html.erb</p>
+<h2 class="show-shop-title">店舗詳細</h2>
+
+<%#店舗詳細情報%>
+<table class="show-shop-table">
+  <tr>
+    <td><%= image_tag @shop.image, size: "300x200" %></td>
+  </tr>
+  <tr>
+    <td>登録者</td>
+    <td><%= @shop.user.name %></td>
+  </tr>
+  <tr>
+    <td>ジャンル</td>
+    <td><%= @shop.genre.name %></td>
+  </tr>
+  <tr>
+    <td>店舗名</td>
+    <td><%= @shop.name %></td>
+  </tr>
+  <tr>
+    <td>営業時間</td>
+    <td><%= @shop.business_start_hours.strftime("%H:%M") %>~<%= @shop.business_finish_hours.strftime("%H:%M") %></td>
+  </tr>
+  <tr>
+    <td>休業日</td>
+    <td><%= @shop.holiday %></td>
+  </tr>
+  <tr>
+    <td>所在地</td>
+    <td><%= @shop.location %></td>
+  </tr>
+</table>
+
+<%= link_to "店舗一覧へ戻る", shops_path, class:"show-shop-link-button" %>

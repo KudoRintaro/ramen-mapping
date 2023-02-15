@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-//タイトル
+//会員情報タイトル
 .show-user-title{
   display: block;
   width: 200px;
@@ -17,7 +17,7 @@
   border-collapse: separate;
   border-spacing: 30px;
 }
-//リンクボタンレイアウト
+//会員情報リンクボタンレイアウト
 .show-user-link-box{
   width: 100%;
 }
@@ -51,6 +51,33 @@
   width: 100%;
   text-decoration: none;
   color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+//会員情報編集画面タイトル
+.edit-user-title{
+  display: block;
+  width: 200px;
+  margin-top: 100px;
+  margin-left: 500px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.edit-user-table{
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+.edit-user-button{
+  display: block;
+  width: 120px;
+  height: 50px;
+  margin: auto;
+  margin-top: 30px;
+  background-color: #FF6600;
   font-size: 25px;
   font-weight: bold;
 }

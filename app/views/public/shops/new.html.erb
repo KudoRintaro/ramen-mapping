@@ -25,13 +25,15 @@
     </tr>
     <tr>
       <td><%= f.label :holiday, "休業日" %></td>
-      <td><%= f.select :holiday, {"月曜日": 0, "火曜日": 1, "水曜日": 2, "木曜日": 3, "金曜日": 4, "土曜日": 5, "日曜日": 6}, {include_blank: "選択してください"} %></td>
+      <td><%= f.select :holiday, ["月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日", "日曜日"], {include_blank: "選択してください"} %></td>
     </tr>
     <tr>
       <td><%= f.label :image, "店舗画像" %></td>
       <td><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
   </table>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.submit "登録", class:"new-shop-button" %>
  <% end %>
 
