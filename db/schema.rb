@@ -78,12 +78,16 @@ ActiveRecord::Schema.define(version: 2023_02_16_181805) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
     t.float "atmosphere_rate"
     t.float "servise_rate"
     t.float "taste_rate"
     t.float "congestion_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_reviews_on_shop_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -131,6 +135,8 @@ ActiveRecord::Schema.define(version: 2023_02_16_181805) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorite_shops", "shops"
   add_foreign_key "favorite_shops", "users"
+  add_foreign_key "reviews", "shops"
+  add_foreign_key "reviews", "users"
   add_foreign_key "shops", "comments"
   add_foreign_key "shops", "genres"
   add_foreign_key "shops", "reviews"

@@ -41,7 +41,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[atmosphere_rate]",
+         scoreName: "review[atmosphere_rate]",
          readOnly: true,
        };
        raty(elem_atmosphere_<%= @shop.id %>,opt_atmosphere_<%= @shop.id %>);
@@ -59,7 +59,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[servise_rate]",
+         scoreName: "review[servise_rate]",
          readOnly: true,
        };
        raty(elem_servise_<%= @shop.id %>,opt_servise_<%= @shop.id %>);
@@ -77,7 +77,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[taste_rate]",
+         scoreName: "review[taste_rate]",
          readOnly: true,
        };
        raty(elem_taste_<%= @shop.id %>,opt_taste_<%= @shop.id %>);
@@ -95,7 +95,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[congestion_rate]",
+         scoreName: "review[congestion_rate]",
          readOnly: true,
        };
        raty(elem_congestion_<%= @shop.id %>,opt_congestion_<%= @shop.id %>);
@@ -104,7 +104,7 @@
     </tr>
    </table>
    <%#お気に入り登録ボタン%>
-   <div class="show-shop-button">
+   <div class="show-shop-favorite-button">
     <%= render "public/favorite_shops/favorite", shop: @shop %>
    </div>
   </div>
@@ -123,9 +123,11 @@
        let elem_atmosphere_post_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-post-<%= @shop.id %>');
        let opt_atmosphere_post_<%= @shop.id %> = {
          size: 36,
-         half: true,
+         score: 1,
+         number: 5,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
          scoreName: "review[atmosphere_rate]",
        };
        raty(elem_atmosphere_post_<%= @shop.id %>,opt_atmosphere_post_<%= @shop.id %>);
@@ -160,8 +162,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[taste_rate]",
-         readOnly: true,
+         scoreName: "review[taste_rate]",
        };
        raty(elem_taste_post_<%= @shop.id %>,opt_taste_post_<%= @shop.id %>);
       </script>
@@ -178,14 +179,14 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[congestion_rate]",
-         readOnly: true,
+         scoreName: "review[congestion_rate]",
        };
        raty(elem_congestion_post_<%= @shop.id %>,opt_congestion_post_<%= @shop.id %>);
       </script>
      </td>
     </tr>
    </table>
+   <%= f.submit "評価する", class:"show-shop-review-button" %>
   </div>
   <% end %>
 <%= link_to "店舗一覧へ戻る", shops_path, data: {"turbolinks" => false}, class:"show-shop-link-button" %>

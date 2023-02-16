@@ -128,7 +128,7 @@
   padding-left: 100px;
 }
 
-.show-shop-button{
+.show-shop-favorite-button{
   width: 200px;
   height: 40px;
   margin-left: 30px;
@@ -153,4 +153,25 @@
   margin-top: 100px;
   margin-left: 285.453px;
   background-color: white;
+}
+
+.show-shop-review-title{
+  display: block;
+  width: 180px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.show-shop-rate-table{
+  margin-top: 20px;
+}
+
+.show-shop-review-button{
+  display: block;
+  width: 100px;
+  height: 40px;
+  background-color: #FF6600;
+  border: 3px solid black;
+  margin-left: 370px;
+  margin-bottom: 100px;
 }
