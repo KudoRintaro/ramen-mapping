@@ -2,11 +2,67 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 //shopレイアウト
-
-//一覧ページレイアウト
-.index-shop-map-api{
+//API部分レイアウト
+.shop-map-api{
   width: 100%;
 }
+
+//店舗一覧ページレイアウト
+.index-shop-title{
+  display: block;
+  width: 200px;
+  margin-top: 80px;
+  margin-left: 100px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.index-shop-card{
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  background-color: white;
+}
+
+.index-shop-image{
+  width: 400px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.index-shop-info-table{
+  width: 300px;
+  margin-left: 40px;
+}
+
+.index-shop-rate-table{
+  padding-left: 100px;
+}
+
+.index-shop-button{
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 180px;
+}
+
+.index-shop-link-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}
+
 //店舗登録ページレイアウト
 .new-shop-title{
   display: block;
@@ -39,17 +95,44 @@
 //店舗詳細画面タイトル
 .show-shop-title{
   display: block;
-  width: 200px;
+  width: 400px;
   margin-top: 100px;
-  margin-left: 500px;
+  margin-left: 100px;
   text-align: center;
   background-color: #FF6600;
 }
 
-.show-shop-table{
-   margin: auto;
-  border-collapse: separate;
-  border-spacing: 30px;
+.show-shop-card{
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  background-color: white;
+}
+
+.show-shop-image{
+  width: 400px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.show-shop-info-table{
+  width: 300px;
+  margin-left: 40px;
+}
+
+.show-shop-rate-table{
+  padding-left: 100px;
+}
+
+.show-shop-button{
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 250px;
 }
 
 .show-shop-link-button{
@@ -65,4 +148,9 @@
   font-weight: bold;
 }
 
-//店舗一覧ページレイアウト
+.show-shop-review-card{
+  width: 500px;
+  margin-top: 100px;
+  margin-left: 285.453px;
+  background-color: white;
+}

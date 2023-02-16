@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 #会員側ルーティング
    scope module: :public do
     root to: "homes#top"
-    resources :shops, :except => :destroy
+    resources :shops, :except => :destroy do
+      resource :favorite_shops, only: [:create, :destroy]
+      resource :reviews, only: [:create]
+      resources :comments, only: [:create, :destroy]
+    end
     get "users/my_page" => "users#show"
     get "users/information/edit" => "users#edit"
     patch "users/information" => "users#update"
@@ -19,8 +23,6 @@ Rails.application.routes.draw do
     patch "users/withdraw" => "users#withdraw"
     get "users/comments" => "users#comments"
     resources :genres, only: [:new, :create]
-    resources :favorite_shops, only: [:index, :create, :destroy]
-    resources :comments, only: [:create, :destroy]
   end
 #管理者側ルーティング
   namespace :admin do

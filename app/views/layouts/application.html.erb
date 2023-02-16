@@ -37,9 +37,6 @@
           <%= link_to "会員情報", users_my_page_path, class:"list-box" %>
         </li>
         <li>
-          <%= link_to "お気に入り一覧", favorite_shops_path, class:"list-box" %>
-        </li>
-        <li>
           <%= link_to "ログアウト", destroy_user_session_path(current_user), method: :delete, class:"list-box" %>
         </li>
         <% else %>

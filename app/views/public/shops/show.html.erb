@@ -1,34 +1,191 @@
+<div class="shop-map-api">
+  <%= image_tag "244467-01.jpg", size: "1919x600" %>
+</div>
+
+
 <h2 class="show-shop-title">店舗詳細</h2>
 
-<%#店舗詳細情報%>
-<table class="show-shop-table">
-  <tr>
-    <td><%= image_tag @shop.image, size: "300x200" %></td>
-  </tr>
-  <tr>
-    <td>登録者</td>
-    <td><%= @shop.user.name %></td>
-  </tr>
-  <tr>
-    <td>ジャンル</td>
-    <td><%= @shop.genre.name %></td>
-  </tr>
-  <tr>
-    <td>店舗名</td>
-    <td><%= @shop.name %></td>
-  </tr>
-  <tr>
-    <td>営業時間</td>
-    <td><%= @shop.business_start_hours.strftime("%H:%M") %>~<%= @shop.business_finish_hours.strftime("%H:%M") %></td>
-  </tr>
-  <tr>
-    <td>休業日</td>
-    <td><%= @shop.holiday %></td>
-  </tr>
-  <tr>
-    <td>所在地</td>
-    <td><%= @shop.location %></td>
-  </tr>
-</table>
-
-<%= link_to "店舗一覧へ戻る", shops_path, class:"show-shop-link-button" %>
+  <div class="show-shop-card">
+   <div class="show-shop-image">
+    <%= image_tag @shop.image, size: "400x250" %>
+   </div>
+   <%#店舗情報表示部%>
+   <table class="show-shop-info-table">
+    <tr>
+     <td>店名</td>
+     <td><%= @shop.name %></td>
+    </tr>
+    <tr>
+     <td>所在地</td>
+     <td><%= @shop.location %></td>
+    </tr>
+    <tr>
+     <td>ジャンル</td>
+     <td><%= @shop.genre.name %></td>
+    </tr>
+    <tr>
+     <td>営業時間</td>
+     <td><%= @shop.business_start_hours.strftime("%H:%M") %>~<%= @shop.business_finish_hours.strftime("%H:%M") %></td>
+    </tr>
+   </table>
+   <%#店舗評価表示部%>
+   <table class="show-shop-rate-table">
+    <tr>
+     <td>お店の雰囲気</td>
+     <td>
+      <div id="average-raty-atmosphere-<%= @shop.id %>"></div>
+      <script>
+       let elem_atmosphere_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-<%= @shop.id %>');
+       let opt_atmosphere_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[atmosphere_rate]",
+         readOnly: true,
+       };
+       raty(elem_atmosphere_<%= @shop.id %>,opt_atmosphere_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>接客</td>
+     <td>
+      <div id="average-raty-servise-<%= @shop.id %>"></div>
+      <script>
+       let elem_servise_<%= @shop.id %> = document.querySelector('#average-raty-servise-<%= @shop.id %>');
+       let opt_servise_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[servise_rate]",
+         readOnly: true,
+       };
+       raty(elem_servise_<%= @shop.id %>,opt_servise_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>味</td>
+     <td>
+      <div id="average-raty-taste-<%= @shop.id %>"></div>
+      <script>
+       let elem_taste_<%= @shop.id %> = document.querySelector('#average-raty-taste-<%= @shop.id %>');
+       let opt_taste_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[taste_rate]",
+         readOnly: true,
+       };
+       raty(elem_taste_<%= @shop.id %>,opt_taste_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>混雑度</td>
+     <td>
+      <div id="average-raty-congestion-<%= @shop.id %>"></div>
+      <script>
+       let elem_congestion_<%= @shop.id %> = document.querySelector('#average-raty-congestion-<%= @shop.id %>');
+       let opt_congestion_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[congestion_rate]",
+         readOnly: true,
+       };
+       raty(elem_congestion_<%= @shop.id %>,opt_congestion_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+   <%#お気に入り登録ボタン%>
+   <div class="show-shop-button">
+    <%= render "public/favorite_shops/favorite", shop: @shop %>
+   </div>
+  </div>
+  <%#レビュー投稿フォーム%>
+  <%= form_with url: shop_reviews_path(@shop.id) do |f| %>
+  <div class="show-shop-review-card">
+  <h2 class="show-shop-review-title">レビュー投稿</h2>
+   <table class="show-shop-rate-table">
+    <tr>
+     <td><%= f.label :atmosphere_rate, "お店の雰囲気" %></td>
+     <td>
+      <div id="average-raty-atmosphere-post-<%= @shop.id %>">
+       <%= f.hidden_field :atmosphere_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_atmosphere_post_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-post-<%= @shop.id %>');
+       let opt_atmosphere_post_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "review[atmosphere_rate]",
+       };
+       raty(elem_atmosphere_post_<%= @shop.id %>,opt_atmosphere_post_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>接客</td>
+     <td>
+      <div id="average-raty-servise-post-<%= @shop.id %>"></div>
+      <script>
+       let elem_servise_post_<%= @shop.id %> = document.querySelector('#average-raty-servise-post-<%= @shop.id %>');
+       let opt_servise_post_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "review[servise_rate]",
+       };
+       raty(elem_servise_post_<%= @shop.id %>,opt_servise_post_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>味</td>
+     <td>
+      <div id="average-raty-taste-post-<%= @shop.id %>"></div>
+      <script>
+       let elem_taste_post_<%= @shop.id %> = document.querySelector('#average-raty-taste-post-<%= @shop.id %>');
+       let opt_taste_post_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[taste_rate]",
+         readOnly: true,
+       };
+       raty(elem_taste_post_<%= @shop.id %>,opt_taste_post_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>混雑度</td>
+     <td>
+      <div id="average-raty-congestion-post-<%= @shop.id %>"></div>
+      <script>
+       let elem_congestion_post_<%= @shop.id %> = document.querySelector('#average-raty-congestion-post-<%= @shop.id %>');
+       let opt_congestion_post_<%= @shop.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[congestion_rate]",
+         readOnly: true,
+       };
+       raty(elem_congestion_post_<%= @shop.id %>,opt_congestion_post_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+  </div>
+  <% end %>
+<%= link_to "店舗一覧へ戻る", shops_path, data: {"turbolinks" => false}, class:"show-shop-link-button" %>

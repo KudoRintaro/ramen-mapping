@@ -1,3 +1,27 @@
 // Place all the styles related to the public/favorite_shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+//お気に入り解除ボタン
+.favorite-delete-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: orange;
+  background-color: white;
+  border: 3px solid orange;
+}
+
+.favorite-post-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #FF6600;
+  border: 3px solid black;
+}

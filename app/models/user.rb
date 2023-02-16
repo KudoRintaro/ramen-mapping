@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :shops
   has_many :comments, dependent: :destroy
   has_many :favorite_shops, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   has_one_attached :image
 
