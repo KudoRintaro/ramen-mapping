@@ -38,7 +38,6 @@
        let elem_atmosphere_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-<%= @shop.id %>');
        let opt_atmosphere_<%= @shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
          scoreName: "review[atmosphere_rate]",
@@ -142,9 +141,11 @@
        let elem_servise_post_<%= @shop.id %> = document.querySelector('#average-raty-servise-post-<%= @shop.id %>');
        let opt_servise_post_<%= @shop.id %> = {
          size: 36,
-         half: true,
+         score: 1,
+         number: 5,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
          scoreName: "review[servise_rate]",
        };
        raty(elem_servise_post_<%= @shop.id %>,opt_servise_post_<%= @shop.id %>);
@@ -159,9 +160,11 @@
        let elem_taste_post_<%= @shop.id %> = document.querySelector('#average-raty-taste-post-<%= @shop.id %>');
        let opt_taste_post_<%= @shop.id %> = {
          size: 36,
-         half: true,
+         score: 1,
+         number: 5,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
          scoreName: "review[taste_rate]",
        };
        raty(elem_taste_post_<%= @shop.id %>,opt_taste_post_<%= @shop.id %>);
@@ -176,9 +179,11 @@
        let elem_congestion_post_<%= @shop.id %> = document.querySelector('#average-raty-congestion-post-<%= @shop.id %>');
        let opt_congestion_post_<%= @shop.id %> = {
          size: 36,
-         half: true,
+         score: 1,
+         number: 5,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
          scoreName: "review[congestion_rate]",
        };
        raty(elem_congestion_post_<%= @shop.id %>,opt_congestion_post_<%= @shop.id %>);
