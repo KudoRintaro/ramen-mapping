@@ -197,16 +197,25 @@
   <div class="show-shop-comments-index">
    <% @comments.each do |comment| %>
     <table class="show-shop-comment-table">
-     <tr>
-      <td><%= image_tag comment.user.image size: "50x50" %></td>
-      <td><%= comment.user.name %></td>
-     </tr>
-     <tr>
-      <td><%= comment.comment %></td>
-     </tr>
+      <thead>
+       <th><%= comment.user.name %></th>
+      </thead>
+      <tbody>
+       <tr>
+        <td><%= image_tag comment.user.image, size: "100x50" %></td>
+        <td><%= comment.comment %></td>
+       </tr>
+      </tbody>
     </table>
    <% end %>
-   
-   <%= form_with model
+
+   <%= flash[:notice] %>
+   <%= form_with url: shop_shop_comments_path(@shop.id) do |f| %>
+    <%= f.label :comment, "コメント投稿" %>
+    <%= f.text_area :comment %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :shop_id, :value => @shop.id %>
+    <%= f.submit "投稿" %>
+   <% end %>
   </div>
 <%= link_to "店舗一覧へ戻る", shops_path, data: {"turbolinks" => false}, class:"show-shop-link-button" %>

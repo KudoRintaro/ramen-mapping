@@ -1,6 +1,10 @@
 class Public::ShopCommentsController < ApplicationController
   def create
-    comment=Comment.new(comment_params)
+    comment=ShopComment.new(comment_params)
+    if comment.save
+      flash[:notice]="コメントを投稿しました"
+    end
+    redirect_to request.referer
   end
 
   def destroy
@@ -9,6 +13,6 @@ class Public::ShopCommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:shop_comment)
+    params.permit(:user_id, :shop_id, :comment)
   end
 end
