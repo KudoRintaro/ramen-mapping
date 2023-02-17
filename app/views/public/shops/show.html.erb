@@ -38,9 +38,9 @@
        let elem_atmosphere_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-<%= @shop.id %>');
        let opt_atmosphere_<%= @shop.id %> = {
          size: 36,
+         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "review[atmosphere_rate]",
          readOnly: true,
        };
        raty(elem_atmosphere_<%= @shop.id %>,opt_atmosphere_<%= @shop.id %>);
@@ -55,7 +55,6 @@
        let elem_servise_<%= @shop.id %> = document.querySelector('#average-raty-servise-<%= @shop.id %>');
        let opt_servise_<%= @shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
          scoreName: "review[servise_rate]",
@@ -194,4 +193,20 @@
    <%= f.submit "評価する", class:"show-shop-review-button" %>
   </div>
   <% end %>
+
+  <div class="show-shop-comments-index">
+   <% @comments.each do |comment| %>
+    <table class="show-shop-comment-table">
+     <tr>
+      <td><%= image_tag comment.user.image size: "50x50" %></td>
+      <td><%= comment.user.name %></td>
+     </tr>
+     <tr>
+      <td><%= comment.comment %></td>
+     </tr>
+    </table>
+   <% end %>
+   
+   <%= form_with model
+  </div>
 <%= link_to "店舗一覧へ戻る", shops_path, data: {"turbolinks" => false}, class:"show-shop-link-button" %>

@@ -105,11 +105,10 @@
      </td>
     </tr>
    </table>
-   <%#お気に入り登録ボタン%>
+   <%#ボタン%>
    <div class="index-shop-button">
     <%= render "public/favorite_shops/favorite", shop: shop %>
     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button" %>
    </div>
-   <%#店舗詳細ページリンク%>
   </div>
 <% end %>

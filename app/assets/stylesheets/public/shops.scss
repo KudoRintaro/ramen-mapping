@@ -175,3 +175,59 @@
   margin-left: 370px;
   margin-bottom: 100px;
 }
+
+//ユーザお気に入り登録店舗ページレイアウト
+.favorite-shops-title{
+  display: block;
+  width: 300px;
+  margin-top: 80px;
+  margin-left: 100px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.favorite-shops-card{
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  background-color: white;
+}
+
+.favorite-shops-image{
+  width: 400px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.favorite-shops-info-table{
+  width: 300px;
+  margin-left: 40px;
+}
+
+.favorite-shops-rate-table{
+  padding-left: 100px;
+}
+
+.favorite-shops-button{
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 180px;
+}
+
+.favorite-shops-link-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}

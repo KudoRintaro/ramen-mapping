@@ -1,0 +1,111 @@
+<h2 class="favorite-shops-title">お気に入り店舗一覧</h2>
+
+<%#お気に入り登録店舗一覧%>
+<% @shops.each do |favorite| %>
+ <% if current_user.id=favorite.shop.user_id %>
+  <div class="favorite-shops-card">
+   <div class="favorite-shops-image">
+    <%= image_tag favorite.shop.image, size: "400x250" %>
+   </div>
+   <%#店舗情報表示部%>
+   <table class="favorite-shops-info-table">
+    <tr>
+     <td>店名</td>
+     <td><%= favorite.shop.name %></td>
+    </tr>
+    <tr>
+     <td>所在地</td>
+     <td><%= favorite.shop.location %></td>
+    </tr>
+    <tr>
+     <td>ジャンル</td>
+     <td><%= favorite.shop.genre.name %></td>
+    </tr>
+    <tr>
+     <td>営業時間</td>
+     <td><%= favorite.shop.business_start_hours.strftime("%H:%M") %>~<%= favorite.shop.business_finish_hours.strftime("%H:%M") %></td>
+    </tr>
+   </table>
+   <%#店舗評価表示部%>
+   <table class="favorite-shops-rate-table">
+    <tr>
+     <td>お店の雰囲気</td>
+     <td>
+      <div id="average-raty-atmosphere-<%= favorite.id %>"></div>
+      <script>
+       let elem_atmosphere_<%= favorite.id %> = document.querySelector('#average-raty-atmosphere-<%= favorite.id %>');
+       let opt_atmosphere_<%= favorite.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[atmosphere_rate]",
+         readOnly: true,
+       };
+       raty(elem_atmosphere_<%= favorite.id %>,opt_atmosphere_<%= favorite.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>接客</td>
+     <td>
+      <div id="average-raty-servise-<%= favorite.id %>"></div>
+      <script>
+       let elem_servise_<%= favorite.id %> = document.querySelector('#average-raty-servise-<%= favorite.id %>');
+       let opt_servise_<%= favorite.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[servise_rate]",
+         readOnly: true,
+       };
+       raty(elem_servise_<%= favorite.id %>,opt_servise_<%= favorite.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>味</td>
+     <td>
+      <div id="average-raty-taste-<%= favorite.id %>"></div>
+      <script>
+       let elem_taste_<%= favorite.id %> = document.querySelector('#average-raty-taste-<%= favorite.id %>');
+       let opt_taste_<%= favorite.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[taste_rate]",
+         readOnly: true,
+       };
+       raty(elem_taste_<%= favorite.id %>,opt_taste_<%= favorite.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>混雑度</td>
+     <td>
+      <div id="average-raty-congestion-<%= favorite.id %>"></div>
+      <script>
+       let elem_congestion_<%= favorite.id %> = document.querySelector('#average-raty-congestion-<%= favorite.id %>');
+       let opt_congestion_<%= favorite.id %> = {
+         size: 36,
+         half: true,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "shop[congestion_rate]",
+         readOnly: true,
+       };
+       raty(elem_congestion_<%= favorite.id %>,opt_congestion_<%= favorite.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+   <%#ボタン%>
+   <div class="favorite-shops-button">
+    <%= render "public/favorite_shops/favorite", shop: favorite.shop %>
+    <%= link_to "店舗詳細", shop_path(favorite.shop.id), data: {"turbolinks" => false}, class:"favorite-shops-link-button" %>
+   </div>
+  </div>
+ <% end %>
+<% end %>

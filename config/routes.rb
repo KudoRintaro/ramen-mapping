@@ -10,9 +10,12 @@ Rails.application.routes.draw do
    scope module: :public do
     root to: "homes#top"
     resources :shops, :except => :destroy do
+    collection do
+      get "/favorites" => "shops#favorite"
+    end
       resource :favorite_shops, only: [:create, :destroy]
       resource :reviews, only: [:create]
-      resources :comments, only: [:create, :destroy]
+      resources :shop_comments, only: [:create, :destroy]
     end
     get "users/my_page" => "users#show"
     get "users/information/edit" => "users#edit"
@@ -35,7 +38,7 @@ Rails.application.routes.draw do
     end
     resources :genres, only: [:index, :create, :destroy]
     resources :shops, :except => [:create, :destroy]
-    resources :comments, only: [:index, :show, :destroy]
+    resources :shop_comments, only: [:index, :show, :destroy]
   end
 
 

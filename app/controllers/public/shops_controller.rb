@@ -15,12 +15,19 @@ class Public::ShopsController < ApplicationController
 
   def show
     @shop=Shop.find(params[:id])
+    @review=Review.find(params[:id])
+    @comment=Comment.new
+    @comments=@shop.comments
   end
 
   def edit
   end
 
   def update
+  end
+
+  def favorite
+    @shops=FavoriteShop.all
   end
 
   private

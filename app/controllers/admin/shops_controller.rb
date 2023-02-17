@@ -3,7 +3,6 @@ class Admin::ShopsController < ApplicationController
   end
 
   def show
-    @shop
   end
 
   def edit

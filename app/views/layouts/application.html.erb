@@ -31,7 +31,7 @@
           <%= link_to "店舗登録", new_shop_path, class:"list-box" %>
         </li>
         <li>
-          <%= link_to "店舗一覧", shops_path, class:"list-box" %>
+          <%= link_to "店舗一覧", shops_path, data: {"turbolinks" => false}, class:"list-box" %>
         </li>
         <li>
           <%= link_to "会員情報", users_my_page_path, class:"list-box" %>

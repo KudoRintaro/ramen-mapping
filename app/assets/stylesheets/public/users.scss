@@ -81,3 +81,59 @@
   font-size: 25px;
   font-weight: bold;
 }
+
+//ログイン中のユーザが登録した店舗一覧レイアウト
+.user-shops-index-title{
+  display: block;
+  width: 200px;
+  margin-top: 80px;
+  margin-left: 100px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.user-shops-index-card{
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  background-color: white;
+}
+
+.user-shops-index-image{
+  width: 400px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.user-shops-index-info-table{
+  width: 300px;
+  margin-left: 40px;
+}
+
+.user-shops-index-rate-table{
+  padding-left: 100px;
+}
+
+.user-shops-index-button{
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 180px;
+}
+
+.user-shops-index-link-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}
