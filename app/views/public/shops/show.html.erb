@@ -143,7 +143,7 @@
      </thead>
      <tbody>
       <tr>
-       <td><%= comment.comment %></td>
+       <td><%= safe_join(comment.comment.split("\n"),tag(:br)) %></td>
        <td><%= image_tag current_user.image, size: "100x50" %></td>
        <td><%= link_to "削除", shop_shop_comment_path(comment.id), method: :delete, class:"self-comments-delete-button" %></td>
       </tr>
