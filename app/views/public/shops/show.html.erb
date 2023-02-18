@@ -38,9 +38,11 @@
        let elem_atmosphere_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-<%= @shop.id %>');
        let opt_atmosphere_<%= @shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_atmosphere_<%= @shop.id %>,opt_atmosphere_<%= @shop.id %>);
@@ -57,7 +59,9 @@
          size: 36,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "review[servise_rate]",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:servise_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_servise_<%= @shop.id %>,opt_servise_<%= @shop.id %>);
@@ -72,10 +76,11 @@
        let elem_taste_<%= @shop.id %> = document.querySelector('#average-raty-taste-<%= @shop.id %>');
        let opt_taste_<%= @shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "review[taste_rate]",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:taste_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_taste_<%= @shop.id %>,opt_taste_<%= @shop.id %>);
@@ -90,10 +95,11 @@
        let elem_congestion_<%= @shop.id %> = document.querySelector('#average-raty-congestion-<%= @shop.id %>');
        let opt_congestion_<%= @shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "review[congestion_rate]",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:congestion_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_congestion_<%= @shop.id %>,opt_congestion_<%= @shop.id %>);
@@ -125,7 +131,6 @@
          number: 5,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         starHalf: "<%= asset_path("star-half.png") %>",
          scoreName: "review[atmosphere_rate]",
        };
        raty(elem_atmosphere_post_<%= @shop.id %>,opt_atmosphere_post_<%= @shop.id %>);
@@ -133,9 +138,11 @@
      </td>
     </tr>
     <tr>
-     <td>接客</td>
+     <td><%= f.label :servise_rate, "接客" %></td>
      <td>
-      <div id="average-raty-servise-post-<%= @shop.id %>"></div>
+      <div id="average-raty-servise-post-<%= @shop.id %>">
+      <%= f.hidden_field :servise_rate, id: :review_star %>
+      </div>
       <script>
        let elem_servise_post_<%= @shop.id %> = document.querySelector('#average-raty-servise-post-<%= @shop.id %>');
        let opt_servise_post_<%= @shop.id %> = {
@@ -152,9 +159,11 @@
      </td>
     </tr>
     <tr>
-     <td>味</td>
+     <td><%= f.label :taste_rate, "味" %></td>
      <td>
-      <div id="average-raty-taste-post-<%= @shop.id %>"></div>
+      <div id="average-raty-taste-post-<%= @shop.id %>">
+       <%= f.hidden_field :taste_rate, id: :review_star %>
+      </div>
       <script>
        let elem_taste_post_<%= @shop.id %> = document.querySelector('#average-raty-taste-post-<%= @shop.id %>');
        let opt_taste_post_<%= @shop.id %> = {
@@ -171,9 +180,11 @@
      </td>
     </tr>
     <tr>
-     <td>混雑度</td>
+     <td><%= f.label :congestion_rate, "混雑度" %></td>
      <td>
-      <div id="average-raty-congestion-post-<%= @shop.id %>"></div>
+      <div id="average-raty-congestion-post-<%= @shop.id %>">
+       <%= f.hidden_field :congestion_rate, id: :review_star %>
+      </div>
       <script>
        let elem_congestion_post_<%= @shop.id %> = document.querySelector('#average-raty-congestion-post-<%= @shop.id %>');
        let opt_congestion_post_<%= @shop.id %> = {

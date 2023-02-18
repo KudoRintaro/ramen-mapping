@@ -40,10 +40,11 @@
        let elem_atmosphere_<%= shop.id %> = document.querySelector('#average-raty-atmosphere-<%= shop.id %>');
        let opt_atmosphere_<%= shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[atmosphere_rate]",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_atmosphere_<%= shop.id %>,opt_atmosphere_<%= shop.id %>);
@@ -58,10 +59,11 @@
        let elem_servise_<%= shop.id %> = document.querySelector('#average-raty-servise-<%= shop.id %>');
        let opt_servise_<%= shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[servise_rate]",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:servise_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_servise_<%= shop.id %>,opt_servise_<%= shop.id %>);
@@ -76,10 +78,11 @@
        let elem_taste_<%= shop.id %> = document.querySelector('#average-raty-taste-<%= shop.id %>');
        let opt_taste_<%= shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[taste_rate]",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:taste_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_taste_<%= shop.id %>,opt_taste_<%= shop.id %>);
@@ -94,10 +97,11 @@
        let elem_congestion_<%= shop.id %> = document.querySelector('#average-raty-congestion-<%= shop.id %>');
        let opt_congestion_<%= shop.id %> = {
          size: 36,
-         half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[congestion_rate]",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:congestion_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_congestion_<%= shop.id %>,opt_congestion_<%= shop.id %>);
