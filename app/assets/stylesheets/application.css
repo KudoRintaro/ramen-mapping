@@ -41,6 +41,13 @@ header{
   margin-left: 500px;
   font-size: 30px;
 }
+
+/*フラッシュメッセージレイアウト*/
+.flash-message-text{
+  display: block;
+  margin: 30px;
+  font-size: 15px;
+}
 /*メニューバーレイアウト*/
 nav{
   margin: 0 20px 0 auto;

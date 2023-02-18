@@ -49,13 +49,26 @@
   margin-left: 30px;
   margin-top: 180px;
 }
-
+//会員の表示画面のボタン配置
 .index-shop-link-button{
   display: block;
   width: 200px;
   height: 40px;
   line-height: 40px;
   margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}
+//会員未登録者の表示画面のボタン配置
+.index-shop-link-button-guest{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 60px;
   text-align: center;
   text-decoration: none;
   color: black;
@@ -92,7 +105,7 @@
   background-color: #FF6600;
 }
 
-//店舗詳細画面タイトル
+//店舗詳細画面レイアウト
 .show-shop-title{
   display: block;
   width: 400px;
@@ -135,19 +148,6 @@
   margin-top: 250px;
 }
 
-.show-shop-link-button{
-  display: block;
-  width: 200px;
-  margin: auto;
-  margin-top: 25px;
-  background-color: #FF6600;
-  text-align: center;
-  text-decoration: none;
-  color: black;
-  font-size: 25px;
-  font-weight: bold;
-}
-
 .show-shop-review-card{
   width: 500px;
   margin-top: 100px;
@@ -174,6 +174,34 @@
   border: 3px solid black;
   margin-left: 370px;
   margin-bottom: 100px;
+}
+.show-shop-link-button{
+  display: block;
+  width: 200px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #FF6600;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.show-shop-comments-area{
+  width: 70%;
+  margin: auto;
+  background-color: white;
+}
+
+.show-shop-comment-table-others{
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.show-shop-comment-table-self{
+  margin-left: auto;
+  margin-right: 5px;
 }
 
 //ユーザお気に入り登録店舗ページレイアウト

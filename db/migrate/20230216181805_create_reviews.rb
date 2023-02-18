@@ -10,5 +10,6 @@ class CreateReviews < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :reviews, [:user_id, :shop_id], unique: true
   end
 end

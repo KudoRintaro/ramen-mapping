@@ -111,8 +111,13 @@
    </table>
    <%#ボタン%>
    <div class="index-shop-button">
-    <%= render "public/favorite_shops/favorite", shop: shop %>
-    <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button" %>
+    <%#お気に入りボタンは会員登録者のみ表示%>
+    <% if user_signed_in? %>
+     <%= render "public/favorite_shops/favorite", shop: shop %>
+     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button" %>
+    <% else %>
+     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button-guest" %>
+    <% end %>
    </div>
   </div>
 <% end %>

@@ -1,0 +1,185 @@
+<% if Review.exists?(user_id: current_user.id, shop_id: shop.id) %>
+ <%= form_with url: shop_reviews_path(shop.id), method: :patch do |f| %>
+  <div class="show-shop-review-card">
+  <h2 class="show-shop-review-title">レビュー投稿</h2>
+   <table class="show-shop-rate-table">
+    <tr>
+     <td><%= f.label :atmosphere_rate, "お店の雰囲気" %></td>
+     <td>
+      <div id="average-raty-atmosphere-post-<%= shop.id %>">
+       <%= f.hidden_field :atmosphere_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_atmosphere_post_<%= shop.id %> = document.querySelector('#average-raty-atmosphere-post-<%= shop.id %>');
+       let opt_atmosphere_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "review[atmosphere_rate]",
+       };
+       raty(elem_atmosphere_post_<%= shop.id %>,opt_atmosphere_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td><%= f.label :servise_rate, "接客" %></td>
+     <td>
+      <div id="average-raty-servise-post-<%= shop.id %>">
+      <%= f.hidden_field :servise_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_servise_post_<%= shop.id %> = document.querySelector('#average-raty-servise-post-<%= shop.id %>');
+       let opt_servise_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         scoreName: "review[servise_rate]",
+       };
+       raty(elem_servise_post_<%= shop.id %>,opt_servise_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td><%= f.label :taste_rate, "味" %></td>
+     <td>
+      <div id="average-raty-taste-post-<%= shop.id %>">
+       <%= f.hidden_field :taste_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_taste_post_<%= shop.id %> = document.querySelector('#average-raty-taste-post-<%= shop.id %>');
+       let opt_taste_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         scoreName: "review[taste_rate]",
+       };
+       raty(elem_taste_post_<%= shop.id %>,opt_taste_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td><%= f.label :congestion_rate, "混雑度" %></td>
+     <td>
+      <div id="average-raty-congestion-post-<%= shop.id %>">
+       <%= f.hidden_field :congestion_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_congestion_post_<%= shop.id %> = document.querySelector('#average-raty-congestion-post-<%= shop.id %>');
+       let opt_congestion_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         scoreName: "review[congestion_rate]",
+       };
+       raty(elem_congestion_post_<%= shop.id %>,opt_congestion_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+   <%= f.submit "再評価する", class:"show-shop-review-button" %>
+  </div>
+ <% end %>
+<% else %>
+ <%= form_with url: shop_reviews_path(shop.id), method: :post do |f| %>
+  <div class="show-shop-review-card">
+  <h2 class="show-shop-review-title">レビュー投稿</h2>
+   <table class="show-shop-rate-table">
+    <tr>
+     <td><%= f.label :atmosphere_rate, "お店の雰囲気" %></td>
+     <td>
+      <div id="average-raty-atmosphere-post-<%= shop.id %>">
+       <%= f.hidden_field :atmosphere_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_atmosphere_post_<%= shop.id %> = document.querySelector('#average-raty-atmosphere-post-<%= shop.id %>');
+       let opt_atmosphere_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         scoreName: "review[atmosphere_rate]",
+       };
+       raty(elem_atmosphere_post_<%= shop.id %>,opt_atmosphere_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td><%= f.label :servise_rate, "接客" %></td>
+     <td>
+      <div id="average-raty-servise-post-<%= shop.id %>">
+      <%= f.hidden_field :servise_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_servise_post_<%= shop.id %> = document.querySelector('#average-raty-servise-post-<%= shop.id %>');
+       let opt_servise_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         scoreName: "review[servise_rate]",
+       };
+       raty(elem_servise_post_<%= shop.id %>,opt_servise_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td><%= f.label :taste_rate, "味" %></td>
+     <td>
+      <div id="average-raty-taste-post-<%= shop.id %>">
+       <%= f.hidden_field :taste_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_taste_post_<%= shop.id %> = document.querySelector('#average-raty-taste-post-<%= shop.id %>');
+       let opt_taste_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         scoreName: "review[taste_rate]",
+       };
+       raty(elem_taste_post_<%= shop.id %>,opt_taste_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td><%= f.label :congestion_rate, "混雑度" %></td>
+     <td>
+      <div id="average-raty-congestion-post-<%= shop.id %>">
+       <%= f.hidden_field :congestion_rate, id: :review_star %>
+      </div>
+      <script>
+       let elem_congestion_post_<%= shop.id %> = document.querySelector('#average-raty-congestion-post-<%= shop.id %>');
+       let opt_congestion_post_<%= shop.id %> = {
+         size: 36,
+         score: 1,
+         number: 5,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         scoreName: "review[congestion_rate]",
+       };
+       raty(elem_congestion_post_<%= shop.id %>,opt_congestion_post_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+   <%= f.submit "評価する", class:"show-shop-review-button" %>
+  </div>
+ <% end %>
+<% end %>

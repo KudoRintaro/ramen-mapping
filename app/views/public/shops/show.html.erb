@@ -108,106 +108,23 @@
     </tr>
    </table>
    <%#お気に入り登録ボタン%>
+  <% if user_signed_in? %>
    <div class="show-shop-favorite-button">
     <%= render "public/favorite_shops/favorite", shop: @shop %>
    </div>
+  <% end %>
   </div>
   <%#レビュー投稿フォーム%>
-  <%= form_with url: shop_reviews_path(@shop.id) do |f| %>
-  <div class="show-shop-review-card">
-  <h2 class="show-shop-review-title">レビュー投稿</h2>
-   <table class="show-shop-rate-table">
-    <tr>
-     <td><%= f.label :atmosphere_rate, "お店の雰囲気" %></td>
-     <td>
-      <div id="average-raty-atmosphere-post-<%= @shop.id %>">
-       <%= f.hidden_field :atmosphere_rate, id: :review_star %>
-      </div>
-      <script>
-       let elem_atmosphere_post_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-post-<%= @shop.id %>');
-       let opt_atmosphere_post_<%= @shop.id %> = {
-         size: 36,
-         score: 1,
-         number: 5,
-         starOff: "<%= asset_path("star-off.png") %>",
-         starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "review[atmosphere_rate]",
-       };
-       raty(elem_atmosphere_post_<%= @shop.id %>,opt_atmosphere_post_<%= @shop.id %>);
-      </script>
-     </td>
-    </tr>
-    <tr>
-     <td><%= f.label :servise_rate, "接客" %></td>
-     <td>
-      <div id="average-raty-servise-post-<%= @shop.id %>">
-      <%= f.hidden_field :servise_rate, id: :review_star %>
-      </div>
-      <script>
-       let elem_servise_post_<%= @shop.id %> = document.querySelector('#average-raty-servise-post-<%= @shop.id %>');
-       let opt_servise_post_<%= @shop.id %> = {
-         size: 36,
-         score: 1,
-         number: 5,
-         starOff: "<%= asset_path("star-off.png") %>",
-         starOn: "<%= asset_path("star-on.png") %>",
-         starHalf: "<%= asset_path("star-half.png") %>",
-         scoreName: "review[servise_rate]",
-       };
-       raty(elem_servise_post_<%= @shop.id %>,opt_servise_post_<%= @shop.id %>);
-      </script>
-     </td>
-    </tr>
-    <tr>
-     <td><%= f.label :taste_rate, "味" %></td>
-     <td>
-      <div id="average-raty-taste-post-<%= @shop.id %>">
-       <%= f.hidden_field :taste_rate, id: :review_star %>
-      </div>
-      <script>
-       let elem_taste_post_<%= @shop.id %> = document.querySelector('#average-raty-taste-post-<%= @shop.id %>');
-       let opt_taste_post_<%= @shop.id %> = {
-         size: 36,
-         score: 1,
-         number: 5,
-         starOff: "<%= asset_path("star-off.png") %>",
-         starOn: "<%= asset_path("star-on.png") %>",
-         starHalf: "<%= asset_path("star-half.png") %>",
-         scoreName: "review[taste_rate]",
-       };
-       raty(elem_taste_post_<%= @shop.id %>,opt_taste_post_<%= @shop.id %>);
-      </script>
-     </td>
-    </tr>
-    <tr>
-     <td><%= f.label :congestion_rate, "混雑度" %></td>
-     <td>
-      <div id="average-raty-congestion-post-<%= @shop.id %>">
-       <%= f.hidden_field :congestion_rate, id: :review_star %>
-      </div>
-      <script>
-       let elem_congestion_post_<%= @shop.id %> = document.querySelector('#average-raty-congestion-post-<%= @shop.id %>');
-       let opt_congestion_post_<%= @shop.id %> = {
-         size: 36,
-         score: 1,
-         number: 5,
-         starOff: "<%= asset_path("star-off.png") %>",
-         starOn: "<%= asset_path("star-on.png") %>",
-         starHalf: "<%= asset_path("star-half.png") %>",
-         scoreName: "review[congestion_rate]",
-       };
-       raty(elem_congestion_post_<%= @shop.id %>,opt_congestion_post_<%= @shop.id %>);
-      </script>
-     </td>
-    </tr>
-   </table>
-   <%= f.submit "評価する", class:"show-shop-review-button" %>
-  </div>
+  <% if user_signed_in? %>
+   <%= render "public/shops/review-form", shop: @shop %>
   <% end %>
 
-  <div class="show-shop-comments-index">
+  <%#コメント表示部%>
+  <div class="show-shop-comments-area">
+   <h2 class="show-shop-comments-title">コメント</h2>
    <% @comments.each do |comment| %>
-    <table class="show-shop-comment-table">
+    <% if comment.user!=current_user %>
+    <table class="show-shop-comment-table-others">
       <thead>
        <th><%= comment.user.name %></th>
       </thead>
@@ -218,9 +135,28 @@
        </tr>
       </tbody>
     </table>
+    <% else %>
+    <table class="show-shop-comment-table-self">
+     <thead>
+      <th></th>
+      <th><%= current_user.name %></th>
+     </thead>
+     <tbody>
+      <tr>
+       <td><%= comment.comment %></td>
+       <td><%= image_tag current_user.image, size: "100x50" %></td>
+       <td><%= link_to "削除", shop_shop_comment_path(comment.id), method: :delete, class:"self-comments-delete-button" %></td>
+      </tr>
+     </tbody>
+    </table>
+    <% end %>
    <% end %>
 
+   <%#コメント投稿成功時フラッシュメッセージ%>
    <%= flash[:notice] %>
+
+   <%#コメント投稿フォーム%>
+  <% if user_signed_in? %>
    <%= form_with url: shop_shop_comments_path(@shop.id) do |f| %>
     <%= f.label :comment, "コメント投稿" %>
     <%= f.text_area :comment %>
@@ -228,5 +164,6 @@
     <%= f.hidden_field :shop_id, :value => @shop.id %>
     <%= f.submit "投稿" %>
    <% end %>
+  <% end %>
   </div>
 <%= link_to "店舗一覧へ戻る", shops_path, data: {"turbolinks" => false}, class:"show-shop-link-button" %>

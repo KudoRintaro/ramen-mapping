@@ -8,6 +8,8 @@ class Public::ShopCommentsController < ApplicationController
   end
 
   def destroy
+    ShopComment.find_by(id: params[:shop_id], shop_id: params[:id]).destroy
+    redirect_to request.referer
   end
 
   private

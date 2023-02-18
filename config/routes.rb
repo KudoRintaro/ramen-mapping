@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get "/favorites" => "shops#favorite"
     end
       resource :favorite_shops, only: [:create, :destroy]
-      resource :reviews, only: [:create]
+      resource :reviews, only: [:create, :update]
       resources :shop_comments, only: [:create, :destroy]
     end
     get "users/my_page" => "users#show"
