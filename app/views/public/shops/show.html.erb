@@ -120,11 +120,11 @@
   <% end %>
 
   <%#コメント表示部%>
-  <div class="show-shop-comments-area">
-   <h2 class="show-shop-comments-title">コメント</h2>
+  <div class="comments-area">
+   <h2 class="comments-title">コメント</h2>
    <% @comments.each do |comment| %>
     <% if comment.user!=current_user %>
-    <table class="show-shop-comment-table-others">
+    <table class="comment-table-others">
       <thead>
        <th><%= comment.user.name %></th>
       </thead>
@@ -136,7 +136,7 @@
       </tbody>
     </table>
     <% else %>
-    <table class="show-shop-comment-table-self">
+    <table class="comment-table-self">
      <thead>
       <th></th>
       <th><%= current_user.name %></th>
@@ -152,18 +152,24 @@
     <% end %>
    <% end %>
 
-   <%#コメント投稿成功時フラッシュメッセージ%>
-   <%= flash[:notice] %>
+
 
    <%#コメント投稿フォーム%>
-  <% if user_signed_in? %>
-   <%= form_with url: shop_shop_comments_path(@shop.id) do |f| %>
-    <%= f.label :comment, "コメント投稿" %>
-    <%= f.text_area :comment %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :shop_id, :value => @shop.id %>
-    <%= f.submit "投稿" %>
+   <% if user_signed_in? %>
+    <div class="comment-form-box">
+     <%= form_with url: shop_shop_comments_path(@shop.id) do |f| %>
+      <%= f.label :comment, "コメント投稿", class:"comment-form-label" %>
+      <%= f.text_area :comment, class:"comment-form" %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :shop_id, :value => @shop.id %>
+      <%= f.submit "投稿", class:"comment-post-button" %>
+     <% end %>
+    </div>
    <% end %>
-  <% end %>
+
+  <%#コメント投稿成功時フラッシュメッセージ%>
+   <div class="comment-flash-message">
+    <%= flash[:notice] %>
+   </div>
   </div>
 <%= link_to "店舗一覧へ戻る", shops_path, data: {"turbolinks" => false}, class:"show-shop-link-button" %>

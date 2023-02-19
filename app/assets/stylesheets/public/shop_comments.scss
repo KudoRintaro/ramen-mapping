@@ -1,3 +1,70 @@
 // Place all the styles related to the public/shop_comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//コメントエリアレイアウト
+.comments-area{
+  width: 70%;
+  margin: auto;
+  background-color: white;
+}
+
+.comments-title{
+  display: block;
+  width: 100px;
+  background-color: #FF6600;
+}
+
+.comment-table-others{
+  margin-left: 5px;
+  margin-right: auto;
+  word-break: break-all;
+}
+
+.comment-table-self{
+  margin-left: auto;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+.comment-form-box{
+  width: 760px;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.comment-form-label{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.comment-form{
+  width: 700px;
+  height: 80px;
+  font-size: 20px;
+  background-color: #EEEEEE;
+  border: 3px solid black;
+}
+
+.comment-form:focus{
+  border: 7px solid #FF6600;
+}
+
+
+.comment-post-button{
+  display: inline-block;
+  width: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #66FF66;
+  border: none;
+  border-radius: 10px;
+}
+
+.comment-flash-message{
+  width: 250px;
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+  color: #FF6600;
+}

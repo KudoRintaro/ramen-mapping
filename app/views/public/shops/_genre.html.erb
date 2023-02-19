@@ -1,13 +1,3 @@
-<%#googlemapapi表示部(仮)%>
-<div class="shop-map-api">
-  <%= image_tag "244467-01.jpg", size: "1919x600" %>
-</div>
-
-<%#店舗一覧表示部(人気順)%>
-<h2 class="index-shop-title">店舗一覧</h2>
-
-
-
 <% @shops.each do |shop| %>
   <div class="index-shop-card">
    <div class="index-shop-image">
@@ -122,4 +112,3 @@
     <% end %>
    </div>
   </div>
-<% end %>
