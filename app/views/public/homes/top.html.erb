@@ -1,0 +1,29 @@
+<%#トップページ表示画像%>
+<%#javascript実装予定%>
+<div class="image-box">
+ <%= image_tag "244467-01.jpg", size: "900x400" %>
+</div>
+<%#ログインボタン各種%>
+<div class="login-list">
+ <% if user_signed_in? %>
+
+  <%= link_to destroy_user_session_path(current_user),method: :delete, class:"button" do %>
+   <P>ログアウト</P>
+  <% end %>
+
+ <% else %>
+
+  <%= link_to shops_path, class:"button" do %>
+   <p>ゲストログイン</p>
+  <% end %>
+
+  <%= link_to new_user_registration_path, class:"button" do %>
+   <p>新規会員登録</p>
+  <% end %>
+
+  <%= link_to new_user_session_path, class:"button" do %>
+   <p>会員ログイン</p>
+  <% end %>
+
+ <% end %>
+</div>

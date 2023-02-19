@@ -1,0 +1,263 @@
+// Place all the styles related to the public/shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+//shopレイアウト
+//API部分レイアウト
+.shop-map-api{
+  width: 100%;
+}
+
+//店舗一覧ページレイアウト
+.index-shop-title{
+  display: block;
+  width: 200px;
+  margin-top: 80px;
+  margin-left: 100px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.index-shop-card{
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  background-color: white;
+}
+
+.index-shop-image{
+  width: 400px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.index-shop-info-table{
+  width: 300px;
+  margin-left: 40px;
+}
+
+.index-shop-rate-table{
+  padding-left: 100px;
+}
+
+.index-shop-button{
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 180px;
+}
+//会員の表示画面のボタン配置
+.index-shop-link-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}
+//会員未登録者の表示画面のボタン配置
+.index-shop-link-button-guest{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 60px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}
+
+//店舗登録ページレイアウト
+.new-shop-title{
+  display: block;
+  width: 200px;
+  margin-top: 100px;
+  margin-left: 500px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.new-shop-table{
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+.new-shop-button{
+  display: block;
+  width: 120px;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  background-color: #FF6600;
+}
+
+//店舗詳細画面レイアウト
+.show-shop-title{
+  display: block;
+  width: 400px;
+  margin-top: 100px;
+  margin-left: 100px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.show-shop-card{
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  background-color: white;
+}
+
+.show-shop-image{
+  width: 400px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.show-shop-info-table{
+  width: 300px;
+  margin-left: 40px;
+}
+
+.show-shop-rate-table{
+  padding-left: 100px;
+}
+
+.show-shop-favorite-button{
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 250px;
+}
+
+.show-shop-review-card{
+  width: 500px;
+  margin-top: 100px;
+  margin-left: 285.453px;
+  background-color: white;
+}
+
+.show-shop-review-title{
+  display: block;
+  width: 180px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.show-shop-rate-table{
+  margin-top: 20px;
+}
+
+.show-shop-review-button{
+  display: block;
+  width: 100px;
+  height: 40px;
+  background-color: #FF6600;
+  border: 3px solid black;
+  margin-left: 370px;
+  margin-bottom: 100px;
+}
+.show-shop-link-button{
+  display: block;
+  width: 200px;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #FF6600;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.show-shop-comments-area{
+  width: 70%;
+  margin: auto;
+  background-color: white;
+}
+
+.show-shop-comment-table-others{
+  margin-left: 5px;
+  margin-right: auto;
+  word-break: break-all;
+}
+
+.show-shop-comment-table-self{
+  margin-left: auto;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+//ユーザお気に入り登録店舗ページレイアウト
+.favorite-shops-title{
+  display: block;
+  width: 300px;
+  margin-top: 80px;
+  margin-left: 100px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.favorite-shops-card{
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  background-color: white;
+}
+
+.favorite-shops-image{
+  width: 400px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.favorite-shops-info-table{
+  width: 300px;
+  margin-left: 40px;
+}
+
+.favorite-shops-rate-table{
+  padding-left: 100px;
+}
+
+.favorite-shops-button{
+  width: 200px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: 180px;
+}
+
+.favorite-shops-link-button{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}

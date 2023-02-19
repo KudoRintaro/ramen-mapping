@@ -1,0 +1,43 @@
+<div class="session-box">
+<%#画面タイトル%>
+  <h2 class="session-title">会員ログイン</h2>
+
+<%#会員ログインフォーム%>
+<div class="signin-box">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+   <table class="session-table">
+    <tr class="session-field">
+     <td>
+      <%= f.label :email, "Eメールアドレス" %><br />
+      <%= f.email_field :email, autofocus: true, size:25, placeholder: "xxxx@xxxx", autocomplete: "email", class:"session-form" %>
+     </td>
+    </tr>
+    <tr class="session-field">
+     <td>
+      <%= f.label :password, "パスワード" %><br />
+      <%= f.password_field :password, size:25, placeholder: "パスワード",autocomplete: "current-password", class:"session-form" %>
+     </td>
+    </tr>
+  <% if devise_mapping.rememberable? %>
+    <tr class="session-field">
+     <td>
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+     </td>
+    </tr>
+  <% end %>
+<%#ログインボタン%>
+    <tr class="session-field">
+     <td>
+      <%= f.submit "会員ログイン", class:"session-button" %>
+     </td>
+    </tr>
+   </table>
+  <% end %>
+
+  <div class="link-box">
+   <%= render "public/shared/links" %>
+   または<%= link_to "ゲストログイン", shops_path %>
+  </div>
+</div>

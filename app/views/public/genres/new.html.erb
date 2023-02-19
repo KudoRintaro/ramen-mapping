@@ -1,0 +1,16 @@
+<h2 class="new-genre-request-title">新規ジャンルリクエスト</h2>
+<%#フラッシュメッセージ%>
+<div class="new-genre-request-flash-message">
+ <%= flash[:notice] %>
+</div>
+<%#ジャンルリクエストフォーム%>
+<%= form_with model: @genre do |f| %>
+<table class="new-genre-request-table">
+  <tr>
+    <td><%= f.label :name,"リクエストジャンル名" %></td>
+    <td><%= f.text_field :name, size: 35 %></td>
+  </tr>
+</table>
+
+<%= f.submit "リクエスト", class:"new-genre-request-button" %>
+<% end %>
