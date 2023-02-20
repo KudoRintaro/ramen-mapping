@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_161455) do
   end
 
   create_table "shops", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.integer "genre_id", null: false
     t.string "name", null: false
     t.string "location", null: false
