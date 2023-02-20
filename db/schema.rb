@@ -94,8 +94,6 @@ ActiveRecord::Schema.define(version: 2023_02_17_161455) do
   create_table "shops", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "genre_id", null: false
-    t.integer "shop_comment_id"
-    t.integer "review_id"
     t.string "name", null: false
     t.string "location", null: false
     t.time "business_start_hours", null: false
@@ -104,8 +102,6 @@ ActiveRecord::Schema.define(version: 2023_02_17_161455) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["genre_id"], name: "index_shops_on_genre_id"
-    t.index ["review_id"], name: "index_shops_on_review_id"
-    t.index ["shop_comment_id"], name: "index_shops_on_shop_comment_id"
     t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
@@ -115,19 +111,13 @@ ActiveRecord::Schema.define(version: 2023_02_17_161455) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "shop_comment_id"
-    t.integer "favorite_shop_id"
-    t.integer "review_id"
     t.string "name"
     t.string "kana"
     t.integer "status", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["favorite_shop_id"], name: "index_users_on_favorite_shop_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["review_id"], name: "index_users_on_review_id"
-    t.index ["shop_comment_id"], name: "index_users_on_shop_comment_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -139,10 +129,5 @@ ActiveRecord::Schema.define(version: 2023_02_17_161455) do
   add_foreign_key "shop_comments", "shops"
   add_foreign_key "shop_comments", "users"
   add_foreign_key "shops", "genres"
-  add_foreign_key "shops", "reviews"
-  add_foreign_key "shops", "shop_comments"
   add_foreign_key "shops", "users"
-  add_foreign_key "users", "favorite_shops"
-  add_foreign_key "users", "reviews"
-  add_foreign_key "users", "shop_comments"
 end

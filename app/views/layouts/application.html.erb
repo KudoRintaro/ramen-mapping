@@ -15,6 +15,10 @@
     <header>
       <h2 class="logo">ラーメンマッピング</h2>
      <%#ログインステータス%>
+     <% if admin_signed_in? %>
+     <h4 class="login-status-text">管理者ログイン中</h4>
+     <% end %>
+
      <% if user_signed_in? %>
       <h4 class="login-status-text">ログイン中：<%= current_user.name %></h4>
       <h5 class="flash-message-text"><%= flash[:success] %></h5>
