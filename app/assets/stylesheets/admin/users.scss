@@ -1,3 +1,62 @@
 // Place all the styles related to the admin/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//会員情報詳細ページレイアウト
+.admin-show-user-title{
+  display: block;
+  width: 200px;
+  height: 30px;
+  margin-top: 50px;
+  margin-left: 100px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.admin-show-user-edit-link{
+  text-decoration: none;
+  color: black;
+}
+
+.admin-show-user-card{
+  width: 70%;
+  background-color: white;
+  margin: auto;
+  margin-top: 100px;
+  border: 2px solid black;
+}
+
+.admin-show-user-table{
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 120px 15px;
+}
+
+.admin-show-user-button{
+  width: 350px;
+  margin-left: auto;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.admin-show-user-edit-link{
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #FF6600;
+  border: 2px solid black;
+}
+
+//管理者側会員詳細画面コメント一覧レイアウト
+.admin-show-user-comments-title{
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
+  background-color: white;
+  border: 5px solid black;
+}

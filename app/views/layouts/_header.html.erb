@@ -1,0 +1,50 @@
+<%#ヘッダー部分%>
+    <header>
+      <h2 class="logo">ラーメンマッピング</h2>
+     <%#ログインステータス%>
+     <% if admin_signed_in? %>
+     <h4 class="login-status-text">管理者ログイン中</h4>
+     <% end %>
+
+     <% if user_signed_in? %>
+      <h4 class="login-status-text">ログイン中：<%= current_user.name %></h4>
+      <h5 class="flash-message-text"><%= flash[:success] %></h5>
+     <% else %>
+      <h4 class="login-status-text"><%= flash[:success] %></h4>
+     <% end %>
+     <%#メニューバー部分%>
+     <nav>
+       <ul>
+        <% if admin_signed_in? %>
+        <li>
+          <%= link_to "会員一覧", admin_users_path, class: "list-box" %>
+        </li>
+        <li>
+          <%= link_to "店舗一覧", admin_shops_path, data: {"turbolinks" => false}, class:"list-box" %>
+        </li>
+        <li>
+          <%= link_to "コメント一覧", admin_shop_comments_path, class:"list-box" %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"list-box" %>
+        </li>
+        <% elsif user_signed_in? %>
+        <li>
+          <%= link_to "ジャンル登録", new_genre_path, class:"list-box" %>
+        </li>
+        <li>
+          <%= link_to "店舗登録", new_shop_path, class:"list-box" %>
+        </li>
+        <li>
+          <%= link_to "店舗一覧", shops_path, data: {"turbolinks" => false}, class:"list-box" %>
+        </li>
+        <li>
+          <%= link_to "会員情報", users_my_page_path, class:"list-box" %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"list-box" %>
+        </li>
+        <% end %>
+       </ul>
+     </nav>
+    </header>

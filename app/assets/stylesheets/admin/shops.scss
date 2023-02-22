@@ -1,3 +1,111 @@
 // Place all the styles related to the admin/shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//管理者側店舗詳細レイアウト
+.admin-show-shop-post-user-title{
+  display: block;
+  width: 200px;
+  height: 30px;
+  margin-top: 50px;
+  margin-left: 100px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.admin-show-shop-edit{
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: 30px;
+  background-color: #FF6600;
+  border: 2px solid black;
+}
+
+.admin-show-shop-edit-link{
+  text-decoration: none;
+  color: black;
+}
+
+.admin-show-shop-post-user-card{
+  width: 70%;
+  background-color: white;
+  margin: auto;
+  margin-top: 100px;
+  border: 2px solid black;
+}
+
+.admin-show-shop-post-user-table{
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 120px 15px;
+}
+
+.admin-show-shop-post-user-button{
+  width: 350px;
+  margin-left: auto;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.admin-show-shop-post-user-show-link{
+  display: inline-block;
+  width: 150px;
+  margin-right: 20px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.admin-show-shop-post-user-edit-link{
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #FF6600;
+  border: 2px solid black;
+}
+
+//管理者側店舗編集画面レイアウト
+
+.admin-shop-edit-title{
+  display: block;
+  width: 200px;
+  text-align: center;
+  background-color: #FF6600;
+  margin-top: 100px;
+  margin-left: 500px;
+}
+
+.admin-edit-shop-table{
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 30px;
+}
+
+.admin-shop-edit-button{
+  display: block;
+  width: 120px;
+  height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  linhe-height: 50px;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #FF6600;
+}

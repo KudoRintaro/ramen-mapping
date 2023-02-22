@@ -1,2 +1,49 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<h2 class="admin-show-user-title">会員情報詳細</h2>
+
+<div class="admin-show-user-card">
+    <table class="admin-show-user-table">
+      <thead class="admin-show-user-table-thead">
+       <tr>
+        <th>プロフィール画像</th>
+        <th>id</th>
+        <th>名前</th>
+        <th>フリガナ</th>
+        <th>Eメールアドレス</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= image_tag @user.image, size: "80x100" %></td>
+          <td><%= @user.id %></td>
+          <td><%= @user.name %></td>
+          <td><%= @user.kana %></td>
+          <td><%= @user.email %></td>
+        </tr>
+      </tbody>
+    </table>
+   <div class="admin-show-user-button">
+    <%= link_to "編集する", edit_admin_user_path(@user.id), class:"admin-show-user-edit-link" %>
+   </div>
+  </div>
+
+  <div class="admin-show-user-comments-title">
+    <h2><%= @user.name %>の投稿コメント一覧</h2>
+  </div>
+
+  <table class="admin-show-user-comments-table">
+    <thead>
+      <tr>
+        <th>投稿日</th>
+        <th>投稿内容</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= comment.comment %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

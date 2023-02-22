@@ -1,2 +1,140 @@
-<h1>Admin::Shops#show</h1>
-<p>Find me in app/views/admin/shops/show.html.erb</p>
+<h2 class="show-shop-title">店舗詳細</h2>
+
+  <div class="show-shop-card">
+   <div class="show-shop-image">
+    <%= image_tag @shop.image, size: "400x250" %>
+   </div>
+   <%#店舗情報表示部%>
+   <table class="show-shop-info-table">
+    <tr>
+     <td>店名</td>
+     <td><%= @shop.name %></td>
+    </tr>
+    <tr>
+     <td>所在地</td>
+     <td><%= @shop.location %></td>
+    </tr>
+    <tr>
+     <td>ジャンル</td>
+     <td><%= @shop.genre.name %></td>
+    </tr>
+    <tr>
+     <td>営業時間</td>
+     <td><%= @shop.business_start_hours.strftime("%H:%M") %>~<%= @shop.business_finish_hours.strftime("%H:%M") %></td>
+    </tr>
+   </table>
+   <%#店舗評価表示部%>
+   <table class="show-shop-rate-table">
+    <tr>
+     <td>お店の雰囲気</td>
+     <td>
+      <div id="average-raty-atmosphere-<%= @shop.id %>"></div>
+      <script>
+       let elem_atmosphere_<%= @shop.id %> = document.querySelector('#average-raty-atmosphere-<%= @shop.id %>');
+       let opt_atmosphere_<%= @shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_atmosphere_<%= @shop.id %>,opt_atmosphere_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>接客</td>
+     <td>
+      <div id="average-raty-servise-<%= @shop.id %>"></div>
+      <script>
+       let elem_servise_<%= @shop.id %> = document.querySelector('#average-raty-servise-<%= @shop.id %>');
+       let opt_servise_<%= @shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:servise_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_servise_<%= @shop.id %>,opt_servise_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>味</td>
+     <td>
+      <div id="average-raty-taste-<%= @shop.id %>"></div>
+      <script>
+       let elem_taste_<%= @shop.id %> = document.querySelector('#average-raty-taste-<%= @shop.id %>');
+       let opt_taste_<%= @shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:taste_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_taste_<%= @shop.id %>,opt_taste_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>混雑度</td>
+     <td>
+      <div id="average-raty-congestion-<%= @shop.id %>"></div>
+      <script>
+       let elem_congestion_<%= @shop.id %> = document.querySelector('#average-raty-congestion-<%= @shop.id %>');
+       let opt_congestion_<%= @shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= @shop.reviews.average(:congestion_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_congestion_<%= @shop.id %>,opt_congestion_<%= @shop.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+
+   <div class="admin-show-shop-edit">
+    <%= link_to "編集する", edit_admin_shop_path(@shop.id), class:"admin-show-shop-edit-link" %>
+   </div>
+  </div>
+
+  <h2 class="admin-show-shop-post-user-title">投稿者</h2>
+
+  <div class="admin-show-shop-post-user-card">
+    <table class="admin-show-shop-post-user-table">
+      <thead class="admin-show-shop-post-user-table-thead">
+       <tr>
+        <th>プロフィール画像</th>
+        <th>id</th>
+        <th>名前</th>
+        <th>フリガナ</th>
+        <th>Eメールアドレス</th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= image_tag @user.image, size: "80x100" %></td>
+          <td><%= @user.id %></td>
+          <td><%= @user.name %></td>
+          <td><%= @user.kana %></td>
+          <td><%= @user.email %></td>
+        </tr>
+      </tbody>
+    </table>
+   <div class="admin-show-shop-post-user-button">
+    <%= link_to "会員詳細", admin_user_path(@user.id), class:"admin-show-shop-post-user-show-link" %>
+    <%= link_to "編集する", edit_admin_user_path(@user.id), class:"admin-show-shop-post-user-edit-link" %>
+   </div>
+  </div>
+
+<%= link_to "店舗一覧へ戻る", shops_path, data: {"turbolinks" => false}, class:"show-shop-link-button" %>
