@@ -1,9 +1,8 @@
 class Public::SearchesController < ApplicationController
 
-
   def search
-    @range= params[:range]
-    
-    if @range==""
-      @shops=Shop.looks(params)
+    @genre= params[:genre_id]
+    redirect_to genre_path(@genre)
+  end
+
 end

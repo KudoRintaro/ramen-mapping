@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     get "users/withdraw" => "users#confirm_withdraw"
     patch "users/withdraw" => "users#withdraw"
     get "users/comments" => "users#comments"
-    resources :genres, only: [:new, :create]
+    resources :genres, only: [:new, :create, :show]
     get "search" => "searches#search"
   end
 #管理者側ルーティング

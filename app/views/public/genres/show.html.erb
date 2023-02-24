@@ -3,12 +3,13 @@
   <%= image_tag "244467-01.jpg", size: "1919x600" %>
 </div>
 
-<%#店舗一覧表示部(人気順)%>
-<h2 class="index-shop-title">店舗一覧</h2>
+<h2 class="show-genre-title"><%= @genre.name %>一覧</h2>
 
-<%= render "public/searches//search" %>
+<div class="show-genre-search-form">
+ <%= render "public/searches//search" %>
+</div>
 
-<% @shops.each do |shop| %>
+<% @genre.shops.each do |shop| %>
   <div class="index-shop-card">
    <div class="index-shop-image">
     <%= image_tag shop.image, size: "400x250" %>

@@ -6,8 +6,25 @@
 /*画像部分*/
 .image-box{
   width: 900px;
-  height: 400px;
+  height: 500px;
   margin: 60px auto auto auto;
+  background-image: url(ramen1.jpg);
+}
+
+.image-box-text{
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box-text p{
+  color: white;
+  font-size: 40px;
+  font-family: "HG正楷書体-PRO";
 }
 
 .withdraw-flash-message{

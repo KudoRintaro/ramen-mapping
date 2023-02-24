@@ -6,11 +6,16 @@ class Public::GenresController < ApplicationController
   def create
     genre=Genre.new(genre_params)
     if genre.save
-      flash[:notice]="リクエストを送信しました"
+      flash[:notice]="ジャンル登録しました。"
     else
       flash[:notice]=nil
     end
     redirect_to request.referer
+  end
+
+  def show
+    @genres=Genre.all
+    @genre=Genre.find(params[:id])
   end
 
   private
