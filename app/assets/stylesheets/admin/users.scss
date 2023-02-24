@@ -52,6 +52,13 @@
   border: 2px solid black;
 }
 
+.admin-show-user-status{
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  font-size: 20px;
+}
+
 //管理者側会員詳細画面コメント一覧レイアウト
 .admin-show-user-comments-title{
   width: 70%;
@@ -97,4 +104,108 @@
   font-size: 20px;
   font-weight: bold;
   background-color: #FF6600;
+}
+
+//管理者側会員情報編集ページレイアウト
+.admin-edit-user-withdraw-message{
+  display: block;
+  width: 400px;
+  height: 200px;
+  line-height: 200px;
+  margin: auto;
+}
+
+.admin-edit-user-withdraw-text{
+  display: block;
+  text-align: center;
+}
+
+.admin-edit-user-index-link-button{
+  display: block;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #FF6600;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+//管理者側会員一覧画面レイアウト
+
+.admin-index-user-title{
+  display: block;
+  width: 200px;
+  height: 30px;
+  margin-top: 50px;
+  margin-left: 100px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #FF6600;
+}
+
+.admin-index-user-card{
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.admin-index-user-table{
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 120px 15px;
+}
+
+.admin-index-user-button{
+  width: 350px;
+  margin-left: auto;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.admin-index-user-edit-link{
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #FF6600;
+  border: 2px solid black;
+}
+
+
+.admin-index-user-show-link{
+  display: inline-block;
+  width: 150px;
+  margin-right: 20px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+}
+.admin-withdraw-flash-message{
+  width: 250px;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.admin-index-user-status{
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  font-size: 20px;
 }

@@ -1,2 +1,59 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<h2 class="admin-index-user-title">会員一覧</h2>
+
+<%#強制退会フラッシュメッセージ%>
+<div class="admin-withdraw-flash-message">
+  <%= flash[:admin_withdraw] %>
+</div>
+
+<% @users.each do |user| %>
+ <div class="admin-index-user-card">
+ <table class="admin-index-user-table">
+  <% if user.status==true %>
+      <thead class="admin-index-user-table-thead">
+       <tr>
+        <th>プロフィール画像</th>
+        <th>id</th>
+        <th>名前</th>
+        <th>フリガナ</th>
+        <th>Eメールアドレス</th>
+        <th></th>
+       </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= image_tag user.image, size: "80x100" %></td>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.kana %></td>
+          <td><%= user.email %></td>
+        </tr>
+      </tbody>
+  <% else %>
+      <thead>
+        <th>プロフィール画像</th>
+        <th>id</th>
+        <th>名前</th>
+        <th>フリガナ</th>
+        <th>Eメールアドレス</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= image_tag user.image, size: "80x100" %></td>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+           <td><%= user.kana %></td>
+          <td><%= user.email %></td>
+          <td>
+            <span class="admin-index-user-status">退会済</span>
+          </td>
+        </tr>
+      </tbody>
+  <% end %>
+ </table>
+   <div class="admin-index-user-button">
+    <%= link_to "編集する", edit_admin_user_path(user.id), class:"admin-index-user-edit-link" %>
+    <%= link_to "会員詳細", admin_user_path(user.id), class:"admin-index-user-show-link" %>
+   </div>
+  </div>
+<% end %>

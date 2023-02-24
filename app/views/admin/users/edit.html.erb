@@ -1,6 +1,7 @@
 <h2 class="edit-user-title">会員情報編集</h2>
 
 <%#会員情報編集フォーム%>
+<% if @user.status==true %>
 <%= form_with model: @user, url: admin_user_path do |f| %>
 <table class="edit-user-table">
   <tr>
@@ -22,5 +23,13 @@
 </table>
   <%= f.submit "変更", class:"edit-user-button" %>
 <% end %>
+<% else %>
+<div class="admin-edit-user-withdraw-message">
+  <h1 class="admin-edit-user-withdraw-text">この会員は退会済です。</h1>
+  <%= link_to "会員一覧に戻る", admin_shops_path, class:"admin-edit-user-index-link-button" %>
+</div>
+<% end %>
 
-<%= link_to "強制退会", withdraw_admin_user(@user.id), class:"edit-user-withdraw-link-button" %>
+<% if @user.status==true %>
+ <%= link_to "強制退会", withdraw_admin_user_path(@user.id), class:"edit-user-withdraw-link-button" %>
+<% end %>

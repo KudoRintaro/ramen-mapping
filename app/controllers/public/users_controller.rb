@@ -24,7 +24,7 @@ class Public::UsersController < ApplicationController
 
     user.update(status: false)
     reset_session
-    flash[:withdraw]="退会しました。"
+    flash[:withdraw]="退会しました"
     redirect_to root_path
   end
 

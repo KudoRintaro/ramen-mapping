@@ -1,0 +1,29 @@
+<h2 class="admin-index-comment-title">コメント一覧</h2>
+
+<div class="admin-index-comment-card">
+  <table class="admin-index-comment-table">
+    <thead>
+      <tr>
+        <th>投稿日</th>
+        <th>投稿内容</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= comment.comment %></td>
+        <td>
+          <%= link_to "詳細", admin_shop_comment_path(comment.id), class:"admin-index-comment-show-button" %>
+        </td>
+        <td>
+          <%= link_to "削除する", admin_shop_comment_path(comment.id), method: :delete, class:"admin-index-comment-delete-button" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
