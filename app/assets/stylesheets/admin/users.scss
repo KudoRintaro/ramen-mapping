@@ -59,4 +59,42 @@
   margin-top: 100px;
   background-color: white;
   border: 5px solid black;
+  border-bottom: 2px solid black;
+}
+
+.admin-show-user-comments-card{
+  width: 70%;
+  margin: auto;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.admin-show-user-comments-table{
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+}
+
+.admin-show-user-comments-table th{
+  border-bottom: 3px solid black;
+  padding: 10px;
+}
+
+.admin-show-user-comments-table td{
+  border-bottom: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+.admin-show-user-comments-delete-button{
+  display: block;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  margin: auto;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #FF6600;
 }

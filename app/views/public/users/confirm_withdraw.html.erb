@@ -1,2 +1,10 @@
-<h1>Public::Users#confirm_withdraw</h1>
-<p>Find me in app/views/public/users/confirm_withdraw.html.erb</p>
+<div class="user-withdraw-box">
+
+  <h2 class="user-withdraw-title">会員退会確認画面</h2>
+
+  <div class="user-withdraw-select">
+    <h2>本当に退会しますか？</h2>
+  　<%= link_to "キャンセル", users_my_page_path, class:"user-withdraw-cancel-button" %>
+  　<%= link_to "退会する", users_withdraw_path, method: :patch, class:"user-withdraw-button" %>
+  </div>
+</div>

@@ -82,6 +82,22 @@
   font-weight: bold;
 }
 
+.edit-user-withdraw-link-button{
+  display: block;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: #FF3300;
+  border: 2px solid black;
+}
+
 //ログイン中のユーザが登録した店舗一覧レイアウト
 .user-shops-index-title{
   display: block;
@@ -136,4 +152,56 @@
   color: black;
   background-color: white;
   border: 3px solid black;
+}
+
+//会員退会確認画面レイアウト
+
+.user-withdraw-box{
+  width: 100%;
+  height: 900px;
+}
+
+.user-withdraw-title{
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin-left: 400px;
+  margin-top: 200px;
+  background-color: #FF6600;
+}
+
+.user-withdraw-select{
+  width: 40%;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  margin: auto;
+}
+
+.user-withdraw-cancel-button{
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.user-withdraw-button{
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #FF6600;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid black;
 }

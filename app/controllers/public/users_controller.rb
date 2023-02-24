@@ -15,15 +15,19 @@ class Public::UsersController < ApplicationController
 
   def update
     user=current_user
-    user.update!(user_params)
+    user.update(user_params)
     redirect_to users_my_page_path
   end
 
-  def confirm_withdraw
+  def withdraw
+    user=current_user
+
+    user.update(status: false)
+    reset_session
+    flash[:withdraw]="退会しました。"
+    redirect_to root_path
   end
 
-  def withdraw
-  end
 
   private
 

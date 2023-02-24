@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_161455) do
     t.datetime "remember_created_at"
     t.string "name"
     t.string "kana"
-    t.integer "status", default: 1, null: false
+    t.boolean "status", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
