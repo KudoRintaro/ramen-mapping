@@ -50,7 +50,7 @@
         <td><%= comment.created_at.strftime("%Y-%m-%d") %></td>
         <td><%= comment.comment %></td>
         <td>
-          <%= link_to "削除する", shop_shop_comment_path(comment.id), method: :delete, class:"admin-show-user-comments-delete-button" %>
+          <%= link_to "削除する", admin_shop_comment_path(comment.id), method: :delete, class:"admin-show-user-comments-delete-button" %>
         </td>
       </tr>
       <% end %>
