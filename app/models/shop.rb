@@ -6,4 +6,8 @@ class Shop < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   has_one_attached :image
+
+  def self.looks(search, word)
+    @shop=Shop.where("name LIKE?", "%#{word}%")
+  end
 end

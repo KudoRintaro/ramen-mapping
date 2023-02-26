@@ -1,12 +1,12 @@
 <%#googlemapapi表示部(仮)%>
 <div class="shop-map-api">
-  <%= image_tag "244467-01.jpg", size: "1919x600" %>
+  <%= image_tag "ramen1.jpg", size: "1919x600" %>
 </div>
 
 <h2 class="show-genre-title"><%= @genre.name %>一覧</h2>
 
 <div class="show-genre-search-form">
- <%= render "public/searches//search" %>
+ <%= render "public/searches/genre-search" %>
 </div>
 
 <% @genre.shops.each do |shop| %>

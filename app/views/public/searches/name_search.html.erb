@@ -1,3 +1,14 @@
+<div class="shop-map-api">
+  <%= image_tag "ramen1.jpg", size: "1919x600" %>
+</div>
+
+<%#店舗一覧表示部(人気順)%>
+<h2 class="index-shop-title">店舗一覧</h2>
+
+<div class="index-shop-genre-search-form">
+ <%= render "public/searches/genre-search" %>
+</div>
+
 <% @shops.each do |shop| %>
   <div class="index-shop-card">
    <div class="index-shop-image">
@@ -112,3 +123,4 @@
     <% end %>
    </div>
   </div>
+<% end %>

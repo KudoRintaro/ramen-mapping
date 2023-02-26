@@ -1,3 +1,29 @@
 // Place all the styles related to the public/searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//ジャンル検索フォームレイアウト
+.search-genre-select-box{
+  width: 200px;
+  height: 53px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.search-form-button{
+  width: 100px;
+  height: 53px;
+  background-color: #FF6600;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.name-search-form{
+  width: 60%;
+  margin: auto;
+}
+
+.name-search-form-text-field{
+  width: 200px;
+  height: 30px;
+}

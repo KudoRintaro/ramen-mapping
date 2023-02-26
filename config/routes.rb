@@ -26,7 +26,8 @@ Rails.application.routes.draw do
     patch "users/withdraw" => "users#withdraw"
     get "users/comments" => "users#comments"
     resources :genres, only: [:new, :create, :show]
-    get "search" => "searches#search"
+    get "genre_search" => "searches#genre_search"
+    get "search" => "searches#name_search"
   end
 #管理者側ルーティング
   namespace :admin do
