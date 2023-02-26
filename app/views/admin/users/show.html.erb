@@ -20,7 +20,9 @@
           <td><%= @user.kana %></td>
           <td><%= @user.email %></td>
           <td>
-            <span class="admin-index-user-status">退会済</span>
+            <span class="admin-index-user-status">
+              <%= @user.status %>
+              </span>
           </td>
         </tr>
       </tbody>
