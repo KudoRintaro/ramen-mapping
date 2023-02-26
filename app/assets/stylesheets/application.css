@@ -50,15 +50,15 @@ header{
 }
 /*メニューバーレイアウト*/
 nav{
-  margin-top: auto;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 0;
   margin-left: auto;
   margin-right: 10px;
 }
 
 ul{
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 li{
