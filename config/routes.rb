@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'maps/index'
+  end
   devise_for :users, controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
       resource :favorite_shops, only: [:create, :destroy]
       resource :reviews, only: [:create, :update]
       resources :shop_comments, only: [:create, :destroy]
+      resources :maps, only: [:index]
     end
     get "users/my_page" => "users#show"
     get "users/information/edit" => "users#edit"

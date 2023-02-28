@@ -1,7 +1,32 @@
 <%#googlemapapi表示部(仮)%>
-<div class="shop-map-api">
-  <%= image_tag "ramen1.jpg", size: "1919x600" %>
-</div>
+<div id="map"></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+</style>
+
+<script>
+ let map
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 35.681236, lng:139.767125},
+    zoom: 10,
+  });
+
+  marker = new google.maps.Marker({
+    position:  {lat: 35.681236, lng:139.767125},
+    map: map
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["API_KEY"] %>&callback=initMap" async defer></script>
 
 <%#店舗一覧表示部(人気順)%>
 <h2 class="index-shop-title">店舗一覧</h2>
