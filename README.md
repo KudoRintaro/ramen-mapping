@@ -30,7 +30,7 @@
 - 店舗側が顧客のコミュニティをチェックして、顧客の意見や需要を分析したい時。
 
 ## 設計書
-- ワイヤーフレーム　
+- ワイヤーフレーム　https://drive.google.com/file/d/1FeGz1_8k1ixKSzxk4ossxanfDfscQqhW/view?usp=share_link
 - ER図　https://drive.google.com/file/d/1C9k44pmahGiKkRpLNvkuZmZBXpQ11-Ai/view?usp=sharing
 - テーブル定義書　https://docs.google.com/spreadsheets/d/18yHpnIBTxzXrqpsBO-6BIcVDyt8z4WIxLUu6llpefew/edit?usp=sharing
 - アプリケーション詳細設計書 https://docs.google.com/spreadsheets/d/11vl5YkDMLUzqjux8aOG122HYpNigOkREOvTpEYZ4VGo/edit?usp=sharing

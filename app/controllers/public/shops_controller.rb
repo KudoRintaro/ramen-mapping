@@ -25,7 +25,7 @@ class Public::ShopsController < ApplicationController
   end
 
   def favorite
-    @shops=FavoriteShop.all
+    @shops=current_user.favorite_shops
   end
 
   private
