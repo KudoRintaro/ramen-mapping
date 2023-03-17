@@ -7,6 +7,7 @@ class Public::UsersController < ApplicationController
   end
 
   def comments
+    @comments=current_user.shop_comments
   end
 
   def edit

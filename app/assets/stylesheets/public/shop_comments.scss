@@ -35,12 +35,14 @@
 
 .comment-form-label{
   font-weight: bold;
+  margin-left: 30px;
   font-size: 20px;
 }
 
 .comment-form{
   width: 700px;
   height: 80px;
+  margin-left: 30px;
   font-size: 20px;
   background-color: #EEEEEE;
   border: 3px solid black;
@@ -53,11 +55,13 @@
 
 .comment-post-button{
   display: inline-block;
-  width: 50px;
+  width: 70px;
+  margin-left: 660px;
+  margin-bottom: 20px;
   font-weight: bold;
   font-size: 20px;
-  background-color: #66FF66;
-  border: none;
+  background-color: #FF6600;
+  border: 2px solid black;
   border-radius: 10px;
 }
 
