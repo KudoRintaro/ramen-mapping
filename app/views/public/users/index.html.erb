@@ -4,9 +4,11 @@
 <% @shops.each do |shop| %>
  <% if current_user.id==shop.user.id %>
   <div class="user-shops-index-card">
+   <% if user.image.attached? %>
    <div class="user-shops-index-image">
     <%= image_tag shop.image, size: "400x250" %>
    </div>
+  <% end %>
    <%#店舗情報表示部%>
    <table class="user-shops-index-info-table">
     <tr>
