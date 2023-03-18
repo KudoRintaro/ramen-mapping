@@ -21,7 +21,11 @@
           <td><%= @user.email %></td>
           <td>
             <span class="admin-index-user-status">
-              <%= @user.status %>
+              <% if @user.status==true %>
+               <p>登録中</p>
+              <% else %>
+               <P>退会済</P>
+              <% end %>
               </span>
           </td>
         </tr>

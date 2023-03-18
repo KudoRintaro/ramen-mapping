@@ -26,6 +26,7 @@
           <td><%= user.name %></td>
           <td><%= user.kana %></td>
           <td><%= user.email %></td>
+          <td>登録中</td>
         </tr>
       </tbody>
   <% else %>
@@ -42,10 +43,12 @@
           <td><%= image_tag user.image, size: "80x100" %></td>
           <td><%= user.id %></td>
           <td><%= user.name %></td>
-           <td><%= user.kana %></td>
+          <td><%= user.kana %></td>
           <td><%= user.email %></td>
           <td>
-            <span class="admin-index-user-status">退会済</span>
+            <span class="admin-index-user-status">
+             <p>退会済</p>
+            </span>
           </td>
         </tr>
       </tbody>
