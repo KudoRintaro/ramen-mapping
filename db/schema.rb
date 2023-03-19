@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 2023_02_17_161455) do
     t.integer "genre_id", null: false
     t.string "name", null: false
     t.string "location", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.time "business_start_hours", null: false
     t.time "business_finish_hours", null: false
     t.string "holiday", null: false

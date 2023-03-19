@@ -11,6 +11,7 @@ class Public::ShopsController < ApplicationController
 
   def index
     @shops=Shop.all
+    @shop=Shop.find(1)
   end
 
   def show
