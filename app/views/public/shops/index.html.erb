@@ -29,7 +29,7 @@ let map
     "<div>営業時間：<%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></div>";
     let infowindow = new google.maps.InfoWindow({
       content: contentString
-    });;
+    });
 
    let marker = new google.maps.Marker({
     position:{lat: <%= shop.latitude %>, lng: <%= shop.longitude %>},
