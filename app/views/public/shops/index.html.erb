@@ -32,7 +32,7 @@ let map
     });
 
    let marker = new google.maps.Marker({
-    position:{lat: <% shop.latitude %>, lng: <% shop.longitude %>},
+    position:{lat: <%= shop.latitude %>, lng: <%= shop.longitude %>},
     map: map,
     title: contentString
    });
