@@ -31,11 +31,11 @@ let map
       content: contentString
     });
 
-   //let marker = new google.maps.Marker({
-    //position:{lat: <%# shop.latitude %>, lng: <%# shop.longitude %>},
-    //map: map,
-    //title: contentString
-   //});
+   let marker = new google.maps.Marker({
+    position:{lat: <% shop.latitude %>, lng: <% shop.longitude %>},
+    map: map,
+    title: contentString
+   });
 
    marker.addListener('click', function(){
       infowindow.open(map, marker);
@@ -55,7 +55,7 @@ let map
 <div class="index-shop-genre-search-form">
  <%= render "public/searches/genre-search" %>
 </div>
-
+<% if Shop.exists? %>
 <% @shops.each do |shop| %>
   <div class="index-shop-card">
    <div class="index-shop-image">
@@ -170,4 +170,5 @@ let map
     <% end %>
    </div>
   </div>
+<% end %>
 <% end %>
