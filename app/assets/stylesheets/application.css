@@ -79,3 +79,123 @@ li{
   margin-left: auto;
   margin-right: 30px;
 }
+
+@media screen and (max-width: 1024px){
+/*ヘッダーレイアウト*/
+header{
+  background-color: #FF6600;
+  height: 80px;
+  display: flex;
+  align-items :center;
+}
+
+.logo{
+  font-family: "HG正楷書体-PRO";
+  font-size: 30px;
+  text-shadow: 5px 3px 3px #888888;
+}
+/*ログインステータス*/
+.login-status-text{
+  display: block;
+  margin-left: 500px;
+  font-size: 20px;
+}
+
+/*フラッシュメッセージレイアウト*/
+.flash-message-text{
+  display: block;
+  margin: 30px;
+  font-size: 15px;
+}
+/*メニューバーレイアウト*/
+nav{
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+ul{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+li{
+  list-style: none;
+  height: 25px;
+  margin-right: 25px;
+}
+
+.list-box{
+  display: block;
+  background-color: gray;
+  text-decoration: none;
+  color: black;
+}
+
+.search-form{
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 30px;
+}
+}
+
+@media screen and (max-width: 768px){
+  /*ヘッダーレイアウト*/
+header{
+  background-color: #FF6600;
+  height: 80px;
+  display: flex;
+  align-items :center;
+}
+
+.logo{
+  font-family: "HG正楷書体-PRO";
+  font-size: 15px;
+  text-shadow: 5px 3px 3px #888888;
+}
+/*ログインステータス*/
+.login-status-text{
+  display: block;
+  margin-left: 500px;
+  font-size: 20px;
+}
+
+/*フラッシュメッセージレイアウト*/
+.flash-message-text{
+  display: block;
+  margin: 30px;
+  font-size: 10px;
+}
+/*メニューバーレイアウト*/
+nav{
+  margin-top: 10px;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+ul{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+li{
+  list-style: none;
+  height: 25px;
+  margin-right: 25px;
+}
+
+.list-box{
+  display: block;
+  background-color: gray;
+  text-decoration: none;
+  color: black;
+}
+
+.search-form{
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 30px;
+}
+}
