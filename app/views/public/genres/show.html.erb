@@ -19,6 +19,9 @@ let map
    zoom: 11,
   });
 
+  let markers=[];
+  let infowindows=[];
+
 
  <% @genre.shops.each do |shop| %>
   (function(){
@@ -37,13 +40,22 @@ let map
     title: contentString
    });
 
+   markers.push(marker);
+   infowindows.push(infowindow);
+
    marker.addListener('click', function(){
+      closeAllInfoWindows();
       infowindow.open(map, marker);
    });
 
   })();
  <% end %>
 
+ function closeAllInfoWindows(){
+  for(let i=0; i<infowindows.length; i++){
+   infowindows[i].close();
+  }
+ }
  }
 </script>
 
