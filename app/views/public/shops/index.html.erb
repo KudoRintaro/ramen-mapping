@@ -19,6 +19,9 @@ let map
    zoom: 11,
   });
 
+  //let markers=[];
+  //let infowindows=[];
+
 
  <% @shops.each do |shop| %>
   (function(){
@@ -27,9 +30,9 @@ let map
     "<div><%= shop.location %></div>"+
     "<div>ジャンル：<%= shop.genre.name %></div>"+
     "<div>営業時間：<%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></div>";
-    let infowindow = new google.maps.InfoWindow({
+   let infowindow = new google.maps.InfoWindow({
       content: contentString
-    });
+   )};
 
    let marker = new google.maps.Marker({
     position:{lat: <%= shop.latitude %>, lng: <%= shop.longitude %>},
@@ -37,7 +40,14 @@ let map
     title: contentString
    });
 
+
+
+   //markers.push(marker);
+   //infowindows.push(infowindow);
+
+
    marker.addListener('click', function(){
+      //closeAllInfoWindows();
       infowindow.open(map, marker);
    });
 
@@ -45,6 +55,11 @@ let map
 
  <% end %>
 
+ //function closeAllInfoWindows(){
+  //for(let i=0; i<infowindows.length; i++){
+   //infowindows[i].close();
+  //}
+ //}
  }
 </script>
 

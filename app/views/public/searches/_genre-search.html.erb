@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="genre-search-form">
     <%= form_with url: genre_search_path, local: true, method: :get do |f| %>
-      <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "--ジャンル検索--"}, class:"search-genre-select-box" %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class:"search-genre-select-box" %>
       <%= f.submit "検索", class:"search-form-button" %>
     <% end %>
   </div>
