@@ -8,20 +8,35 @@
 </style>
 
 <script>
- let map
-
 function initMap(){
   geocoder = new google.maps.Geocoder()
 
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.681236, lng:139.767125},
-    zoom: 10,
+  let map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>},
+    zoom: 15,
   });
 
-  marker = new google.maps.Marker({
-    position:  {lat: 35.681236, lng:139.767125},
-    map: map
-  });
+  let contentString =
+    "<h3><%= @shop.name %></h3>"+
+    "<div><%= @shop.location %></div>"+
+    "<div>ジャンル：<%= @shop.genre.name %></div>"+
+    "<div>営業時間：<%= @shop.business_start_hours.strftime("%H:%M") %>~<%= @shop.business_finish_hours.strftime("%H:%M") %></div>";
+   let infowindow = new google.maps.InfoWindow({
+      content: contentString
+   });
+
+   let marker = new google.maps.Marker({
+    position:{lat: <%= @shop.latitude %>, lng: <%= @shop.longitude %>},
+    map: map,
+    title: contentString
+   });
+
+   infowindow.open(map,marker);
+
+   marker.addListener('click', function(){
+      infowindow.open(map, marker);
+   });
+
 }
 </script>
 

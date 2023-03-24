@@ -48,6 +48,10 @@ let map
       infowindow.open(map, marker);
    });
 
+   marker.addListener('dblclick', function() {
+      window.location.href = '<%= shop_path(shop) %>';
+   });
+
   })();
  <% end %>
 
