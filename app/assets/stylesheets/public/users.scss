@@ -247,6 +247,7 @@
 
 .user-comment-table th{
   border-bottom: 2px solid black;
+  border-left: 1px solid black;
 }
 
 .col-1{
@@ -254,11 +255,16 @@
 }
 
 .col-2{
+  width: 200px;
+}
+
+.col-3{
   width: 600px;
 }
 
 .user-comment-table td{
   text-align: center;
+  border-left: 1px solid black;
   border-bottom: 1px solid black;
 }
 
