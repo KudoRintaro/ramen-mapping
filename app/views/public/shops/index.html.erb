@@ -96,6 +96,10 @@ let map
      <td>営業時間</td>
      <td><%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></td>
     </tr>
+    <tr>
+     <td>登録日</td>
+     <td><%= shop.created_at.strftime("%Y/%m/%d") %></td>
+    </tr>
    </table>
    <%#店舗評価表示部%>
    <table class="index-shop-rate-table">

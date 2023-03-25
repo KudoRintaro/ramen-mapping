@@ -192,6 +192,8 @@
   border: 2px solid black;
 }
 
+//会員投稿コメント一覧画面
+
 .user-withdraw-button{
   display: inline-block;
   width: 150px;
@@ -202,6 +204,62 @@
   color: black;
   background-color: #FF6600;
   font-size: 15px;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.user-comment-title{
+  display: block;
+  background-color: #FF6600;
+  width: 250px;
+  margin-left: 200px;
+  margin-top: 100px;
+}
+
+.user-comment-box{
+  width: 70%;
+  height: 600px;
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 200px;
+}
+
+.user-comment-table{
+  margin: auto;
+  background-color: white;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+
+.user-comment-table th{
+  border-bottom: 2px solid black;
+}
+
+.col-1{
+  width: 400px;
+}
+
+.col-2{
+  width: 600px;
+}
+
+.user-comment-table td{
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.user-comment-info-link{
+  display: block;
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  margin: auto;
+  margin-top: 50px;
+  background-color: #FF6600;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
   font-weight: bold;
   border: 2px solid black;
 }

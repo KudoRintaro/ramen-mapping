@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get "users/withdraw" => "users#confirm_withdraw"
     patch "users/withdraw" => "users#withdraw"
     get "users/comments" => "users#comments"
+    delete "users/comments" => "users#comment_destroy"
     resources :genres, only: [:new, :create, :show]
     get "genre_search" => "searches#genre_search"
     get "search" => "searches#name_search"

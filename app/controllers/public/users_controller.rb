@@ -29,6 +29,12 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def comment_destroy
+    comment=ShopComment.find(params[:id])
+    comment.destroy
+    redirect_to request.referer
+  end
+
 
   private
 

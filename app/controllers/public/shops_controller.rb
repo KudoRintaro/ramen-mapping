@@ -5,8 +5,11 @@ class Public::ShopsController < ApplicationController
 
   def create
     shop=Shop.new(shop_new_params)
-    shop.save
-    redirect_to shop_path(shop.id)
+    if shop.save
+      redirect_to shop_path(shop.id)
+    else
+      redirect_to request.referer
+    end
   end
 
   def index

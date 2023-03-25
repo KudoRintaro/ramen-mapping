@@ -1,5 +1,28 @@
-<% @comments.each do |comment| %>
+<h2 class="user-comment-title">投稿したコメント一覧</h2>
 
-<%= comment.comment %>
+<div class="user-comment-box">
 
-<% end %>
+<table class="user-comment-table">
+  <thead>
+   <tr>
+    <th class="col-1">投稿日</th>
+    <th class="col-2">コメント内容</th>
+    <th></th>
+   </tr>
+  </thead>
+
+  <tbody>
+   <% @comments.each do |comment| %>
+    <tr>
+     <td><%= comment.created_at.strftime("%Y-%m-%d") %></td>
+     <td><%= comment.comment %></td>
+    </tr>
+   <% end %>
+
+
+  </tbody>
+</table>
+
+<%= link_to "会員情報画面に戻る", users_my_page_path(current_user), class:"user-comment-info-link" %>
+
+</div>
