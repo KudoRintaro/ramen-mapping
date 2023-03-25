@@ -107,6 +107,7 @@
    <div class="user-shops-index-button">
     <%= render "public/favorite_shops/favorite", shop: shop %>
     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"user-shops-index-link-button" %>
+    <%= link_to "編集する", edit_shop_path(shop.id), class:"user-shops-index-edit-link-button" %>
    </div>
   </div>
  <% end %>
