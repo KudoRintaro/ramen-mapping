@@ -3,6 +3,8 @@ class Public::ShopCommentsController < ApplicationController
     comment=ShopComment.new(comment_params)
     if comment.save
       flash[:notice]="コメントを投稿しました!!"
+    else
+      flash[:notice]="コメントが入力されていません"
     end
     redirect_to request.referer
   end
