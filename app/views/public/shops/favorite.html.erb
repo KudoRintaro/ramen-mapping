@@ -39,7 +39,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[atmosphere_rate]",
+         score: <%= favorite.shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_atmosphere_<%= favorite.id %>,opt_atmosphere_<%= favorite.id %>);
@@ -57,7 +57,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[servise_rate]",
+         score: <%= favorite.shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_servise_<%= favorite.id %>,opt_servise_<%= favorite.id %>);
@@ -75,7 +75,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[taste_rate]",
+         score: <%= favorite.shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_taste_<%= favorite.id %>,opt_taste_<%= favorite.id %>);
@@ -93,7 +93,7 @@
          half: true,
          starOff: "<%= asset_path("star-off.png") %>",
          starOn: "<%= asset_path("star-on.png") %>",
-         scoreName: "shop[congestion_rate]",
+         score: <%= favorite.shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
          readOnly: true,
        };
        raty(elem_congestion_<%= favorite.id %>,opt_congestion_<%= favorite.id %>);

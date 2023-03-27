@@ -1,5 +1,5 @@
 <% if Review.exists?(user_id: current_user.id, shop_id: shop.id) %>
- <%= form_with url: shop_reviews_path(shop.id), method: :patch do |f| %>
+ <%= form_with url: shop_reviews_path(shop.id), method: :post do |f| %>
   <div class="show-shop-review-card">
   <h2 class="show-shop-review-title">レビュー投稿</h2>
    <table class="show-shop-rate-table">

@@ -188,7 +188,7 @@ function initMap(){
       <tr>
        <td><%= safe_join(comment.comment.split("\n"),tag(:br)) %></td>
        <td><%= image_tag current_user.image, size: "100x50" %></td>
-       <td><%= link_to "削除", shop_shop_comment_path(comment.id), method: :delete, class:"self-comments-delete-button" %></td>
+       <td><%= link_to "削除", shop_shop_comment_path(comment.id), method: :delete, data: {confirm: "コメントを削除しますか？"}, class:"self-comments-delete-button" %></td>
       </tr>
      </tbody>
     </table>
