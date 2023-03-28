@@ -15,7 +15,8 @@ class Public::ShopsController < ApplicationController
   end
 
   def index
-    @shops=Shop.all.page(params[:page]).per(3)
+    @shops=Shop.all
+    @shopspage=Shop.all.page(params[:page]).per(3)
   end
 
   def show
