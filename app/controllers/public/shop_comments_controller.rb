@@ -1,4 +1,6 @@
 class Public::ShopCommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     comment=ShopComment.new(comment_params)
     if comment.save

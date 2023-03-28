@@ -5,7 +5,7 @@
  <% if current_user.id=favorite.shop.user_id %>
   <div class="favorite-shops-card">
    <div class="favorite-shops-image">
-    <%= image_tag favorite.shop.image, size: "400x250" %>
+    <%= image_tag favorite.shop.image, class: "index-image" %>
    </div>
    <%#店舗情報表示部%>
    <table class="favorite-shops-info-table">

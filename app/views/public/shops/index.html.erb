@@ -76,7 +76,7 @@ let map
 <% @shops.each do |shop| %>
   <div class="index-shop-card">
    <div class="index-shop-image">
-    <%= image_tag shop.image, size: "400x250" %>
+    <%= image_tag shop.image, class: "index-image" %>
    </div>
    <%#店舗情報表示部%>
    <table class="index-shop-info-table">
@@ -192,4 +192,9 @@ let map
    </div>
   </div>
 <% end %>
+
+<div class="index-shop-pagination">
+<%= paginate @shops %>
+</div>
+
 <% end %>

@@ -1,4 +1,5 @@
 class Admin::ShopCommentsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @comments=ShopComment.all
   end

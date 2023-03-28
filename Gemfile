@@ -71,3 +71,5 @@ gem "net-imap"
 
 gem 'gmaps4rails'
 gem 'geocoder'
+
+gem 'rails-i18n'

@@ -1,4 +1,6 @@
 class Public::ShopsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def new
     @shop=Shop.new
   end
@@ -13,7 +15,7 @@ class Public::ShopsController < ApplicationController
   end
 
   def index
-    @shops=Shop.all
+    @shops=Shop.all.page(params[:page]).per(3)
   end
 
   def show

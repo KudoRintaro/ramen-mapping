@@ -1,4 +1,5 @@
 class Public::ReviewsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     shop=Shop.find(params[:shop_id])

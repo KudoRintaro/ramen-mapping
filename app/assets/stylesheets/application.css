@@ -80,6 +80,40 @@ li{
   margin-right: 30px;
 }
 
+/*ページネーションレイアウト*/
+.pagination>.active>a{
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.pagination>.active>a:hover{
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.pagination>li>a{
+  color: orange;
+}
+
+.pagination>li>a:hover{
+  color: orange;
+}
+
+/*店舗一覧ページ画像アスペクト比調整*/
+.index-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*店舗詳細ページ画像アスペクト比調整*/
+
+.show-image{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 1024px){
 /*ヘッダーレイアウト*/
 header{
