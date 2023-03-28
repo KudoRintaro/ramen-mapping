@@ -81,21 +81,44 @@ li{
 }
 
 /*ページネーションレイアウト*/
-.pagination>.active>a{
-  background-color: #FF6600;
-  border-color: #FF6600;
+.pagination {
+  display: flex;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+  justify-content: center;
 }
 
-.pagination>.active>a:hover{
-  background-color: #FF6600;
-  border-color: #FF6600;
+.pagination > li {
+  display: flex;
+  margin: 0;
+  height: 40px;
+  align-items: center;
 }
 
-.pagination>li>a{
+.pagination > li > a {
+  padding: 6px 12px;
+  line-height: 1.42857143;
   color: orange;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
 
-.pagination>li>a:hover{
+.pagination > .active > a {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.pagination > .active > a:hover {
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.pagination > li > a:hover {
   color: orange;
 }
 
