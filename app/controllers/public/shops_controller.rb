@@ -37,6 +37,12 @@ class Public::ShopsController < ApplicationController
     end
   end
 
+  def destroy
+    shop=Shop.find(params[:id])
+    shop.destroy
+    redirect_to request.referer
+  end
+
   def favorite
     @shops=current_user.favorite_shops
   end

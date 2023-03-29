@@ -12,10 +12,10 @@ Rails.application.routes.draw do
 #会員側ルーティング
    scope module: :public do
     root to: "homes#top"
-    resources :shops, :except => :destroy do
-    collection do
-      get "/favorites" => "shops#favorite"
-    end
+    resources :shops do
+     collection do
+       get "/favorites" => "shops#favorite"
+     end
       resource :favorite_shops, only: [:create, :destroy]
       resource :reviews, only: [:create, :update]
       resources :shop_comments, only: [:create, :destroy]
