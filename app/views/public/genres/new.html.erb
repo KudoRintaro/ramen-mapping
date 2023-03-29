@@ -1,4 +1,6 @@
 <h2 class="new-genre-request-title">新規ジャンルリクエスト</h2>
+<%#エラーメッセージ %>
+<%= render "layouts/error", obj: @genre %>
 <%#フラッシュメッセージ%>
 <div class="new-genre-request-flash-message">
  <%= flash[:notice] %>

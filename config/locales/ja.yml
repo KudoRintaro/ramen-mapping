@@ -2,7 +2,7 @@ ja:
   activerecord:
     attributes:
       shop:
-        name: "名前"
+        name: "店舗名"
         location: "所在地"
         business_start_hours: "営業開始時間"
         business_finish_hours: "営業終了時間"
@@ -16,3 +16,6 @@ ja:
         email: "メールアドレス"
         kana: "フリガナ"
         image: "プロフィール画像"
+
+      genre:
+        name: "ジャンル名"

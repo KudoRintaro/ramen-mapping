@@ -5,6 +5,7 @@
 <%#会員ログインフォーム%>
 <div class="signin-box">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <%= render "public/shared/error_messages", resource: resource %>
 
    <table class="session-table">
     <tr class="session-field">

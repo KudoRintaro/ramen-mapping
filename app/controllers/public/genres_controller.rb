@@ -11,7 +11,8 @@ class Public::GenresController < ApplicationController
     else
       flash[:notice]=nil
     end
-    redirect_to request.referer
+    @genre=genre
+    render "new"
   end
 
   def show
