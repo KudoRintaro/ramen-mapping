@@ -17,6 +17,7 @@ class Public::GenresController < ApplicationController
   def show
     @genres=Genre.all
     @genre=Genre.find(params[:id])
+    @genrespage=@genre.shops.page(params[:page]).per(3)
   end
 
   private

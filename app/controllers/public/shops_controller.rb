@@ -10,7 +10,8 @@ class Public::ShopsController < ApplicationController
     if shop.save
       redirect_to shop_path(shop.id)
     else
-      redirect_to request.referer
+      @shop=shop
+      render "new"
     end
   end
 

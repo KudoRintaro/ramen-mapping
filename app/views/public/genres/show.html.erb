@@ -71,7 +71,7 @@ let map
  <%= render "public/searches/genre-search" %>
 </div>
 
-<% @genre.shops.each do |shop| %>
+<% @genrespage.each do |shop| %>
   <div class="index-shop-card">
    <div class="index-shop-image">
     <%= image_tag shop.image, size: "400x250" %>
@@ -186,3 +186,7 @@ let map
    </div>
   </div>
 <% end %>
+
+<div class="index-shop-pagination">
+ <%= paginate @genrespage %>
+</div>

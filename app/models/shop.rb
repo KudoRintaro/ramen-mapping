@@ -15,6 +15,7 @@ class Shop < ApplicationRecord
   validates :business_start_hours, presence: true
   validates :business_finish_hours, presence: true
   validates :holiday, presence: true
+  validates :image, presence: true
 
   def self.looks(search, word)
     @shop=Shop.where("name LIKE?", "%#{word}%")
