@@ -32,11 +32,18 @@ header{
 
 .logo{
   font-family: "HG正楷書体-PRO";
+  display: block;
   font-size: 30px;
   text-shadow: 5px 3px 3px #888888;
 }
 /*ログインステータス*/
 .login-status-text{
+  display: block;
+  margin-left: 500px;
+  font-size: 20px;
+}
+
+.admin-login-status-text{
   display: block;
   margin-left: 500px;
   font-size: 20px;
@@ -48,6 +55,13 @@ header{
   margin: 30px;
   font-size: 15px;
 }
+
+.admin-login-flash-message-text{
+  display: block;
+  margin: 30px;
+  font-size: 15px;
+}
+
 /*メニューバーレイアウト*/
 nav{
   margin-top: 10px;

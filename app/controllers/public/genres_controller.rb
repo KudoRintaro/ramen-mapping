@@ -8,11 +8,11 @@ class Public::GenresController < ApplicationController
     genre=Genre.new(genre_params)
     if genre.save
       flash[:notice]="ジャンル登録しました。"
+      redirect_to new_genre_path
     else
-      flash[:notice]=nil
+      @genre=genre
+      render "new"
     end
-    @genre=genre
-    render "new"
   end
 
   def show

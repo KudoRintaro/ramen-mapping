@@ -27,7 +27,6 @@ class Admin::UsersController < ApplicationController
     user=User.find(params[:id])
 
     user.update(status: false)
-    reset_session
     flash[:admin_withdraw]="強制退会処理完了"
     redirect_to admin_users_path
   end
