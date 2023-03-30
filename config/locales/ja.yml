@@ -19,3 +19,11 @@ ja:
 
       genre:
         name: "ジャンル名"
+
+  views:
+    pagination:
+      first: "最初のページ"
+      last: "最後のページ"
+      previous: "前"
+      next: "次"
+      truncate: "..."

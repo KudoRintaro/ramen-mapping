@@ -69,9 +69,16 @@ li{
 
 .list-box{
   display: block;
+  width: 100px;
   background-color: gray;
+  border-radius: 10px;
   text-decoration: none;
+  text-align: center;
   color: black;
+}
+
+.list-box:hover{
+  background-color: #555555;
 }
 
 .search-form{
@@ -120,6 +127,7 @@ li{
 
 .pagination > li > a:hover {
   color: orange;
+  background-color: #EEEEEE;
 }
 
 /*店舗一覧ページ画像アスペクト比調整*/
