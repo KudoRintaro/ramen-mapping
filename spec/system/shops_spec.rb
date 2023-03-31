@@ -24,7 +24,7 @@ describe "店舗登録のテスト" do
         expect(page).to have_content "所在地を入力してください"
       end
       it "ジャンル未選択の場合、バリデーションエラーが表示される" do
-        fill_in "shop[genre_id]", with: ""
+        
         click_button "登録"
         expect(page).to have_content "ジャンルを入力してください"
       end
