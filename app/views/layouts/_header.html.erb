@@ -1,6 +1,8 @@
 <%#ヘッダー部分%>
     <header>
+     <%= link_to root_path, class: "logo-link" do %>
       <h2 class="logo">ラーメンマッピング</h2>
+     <% end %>
      <%#ログインステータス%>
      <% if admin_signed_in? %>
      <h4 class="admin-login-status-text">管理者ログイン中</h4>

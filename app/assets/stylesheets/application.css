@@ -36,6 +36,11 @@ header{
   font-size: 30px;
   text-shadow: 5px 3px 3px #888888;
 }
+
+.logo-link{
+  text-decoration: none;
+  color: black;
+}
 /*ログインステータス*/
 .login-status-text{
   display: block;

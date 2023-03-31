@@ -1,8 +1,8 @@
 <%#退会時フラッシュメッセージ%>
 <div class="withdraw-flash-message">
  <%= flash[:withdraw] %>
-
 </div>
+
 
 
 <%#トップページ表示画像%>
@@ -16,7 +16,7 @@
 <div class="login-list">
  <% if user_signed_in? %>
 
-  <%= link_to destroy_user_session_path(current_user),method: :delete, class:"button" do %>
+  <%= link_to destroy_user_session_path,method: :delete, class:"button" do %>
    <P>ログアウト</P>
   <% end %>
 

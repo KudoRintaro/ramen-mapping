@@ -13,7 +13,7 @@ FactoryBot.define do
   end
 
   factory :genre do
-    id {Faker::Number.number(digits:2)}
+    id {"1"}
     name {Faker::Lorem.characters(number:10)}
   end
 
