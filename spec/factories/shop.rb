@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :shop do
+    id {"1"}
     name {"ラーメン"}
     genre_id {association :genre}
     location {Faker::Lorem.characters(number:30) }
