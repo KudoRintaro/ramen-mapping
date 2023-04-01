@@ -18,6 +18,21 @@ FactoryBot.define do
     name {Faker::Lorem.characters(number:10)}
   end
 
+  factory :review do
+    user {association :user}
+    shop {association :shop}
+    atmosphere_rate {"0"}
+    servise_rate {"0"}
+    taste_rate {"0"}
+    congestion_rate{"0"}
+  end
+
+  factory :comment do
+    user {association :user}
+    shop {association :shop}
+    comment {"美味しいです"}
+  end
+
   factory :user do
     id {Faker::Number.number(digits:2)}
     name {Faker::Lorem.characters(number:20)}

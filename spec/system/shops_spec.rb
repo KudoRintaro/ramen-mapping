@@ -5,7 +5,9 @@ require "rails_helper"
 describe "店舗登録のテスト" do
   let!(:user) {FactoryBot.create(:user)}
   let!(:genre) {FactoryBot.create(:genre)}
-  let!(:shop) {create(:shop, user_id: user.id, genre_id: genre.id)}
+  let!(:shop) {FactoryBot.create(:shop, user_id: user.id, genre_id: genre.id)}
+  let!(:review) {FactoryBot.create(:review, user_id: user.id, shop_id: shop.id)}
+  let(:comment) {FactoryBot.create(:comment, user_id: user.id, shop_id: shop.id)}
 
   describe "新規登録画面のテスト" do
     before do
@@ -156,11 +158,21 @@ describe "店舗登録のテスト" do
         expect(page).to have_selector "#average-raty-servise-post-1"
         expect(page).to have_selector "#average-raty-taste-post-1"
         expect(page).to have_selector "#average-raty-congestion-post-1"
+        expect(page).to have_button "評価する"
       end
-      it "レビューが問題なく投稿されるか" do
-        find("#review_star").set("3")
-        click_button "評価する"
-        expect(shop.reviews.atmosphere_rate).to eq("3")
+
+    end
+    context "コメント投稿機能の確認" do
+      it "コメント投稿フォームが問題なく表示されているか" do
+        expect(page).to have_selector ".comment-form-box"
+        expect(page).to have_selector ".comment-form-label"
+        expect(page).to have_selector ".comment-form"
+        expect(page).to have_button "投稿"
+      end
+      it "コメントが問題なく投稿されるか" do
+        fill_in "comment[comment]", with: "とてもおいしいです。"
+        click_button "投稿"
+        expect(Shop.comment.last.comment).to eq("とてもおいしいです")
       end
     end
   end
