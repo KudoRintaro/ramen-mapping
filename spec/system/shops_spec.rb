@@ -153,6 +153,14 @@ describe "店舗登録のテスト" do
     context "レビュー投稿機能の確認" do
       it "レビュー投稿フォームが問題なく表示されているか" do
         expect(page).to have_selector "#average-raty-atmosphere-post-1"
+        expect(page).to have_selector "#average-raty-servise-post-1"
+        expect(page).to have_selector "#average-raty-taste-post-1"
+        expect(page).to have_selector "#average-raty-congestion-post-1"
+      end
+      it "レビューが問題なく投稿されるか" do
+        find("#review_star").set("3")
+        click_button "評価する"
+        expect(shop.reviews.atmosphere_rate).to eq("3")
       end
     end
   end
