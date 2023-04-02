@@ -169,10 +169,36 @@ describe "店舗登録のテスト" do
         expect(page).to have_selector ".comment-form"
         expect(page).to have_button "投稿"
       end
-      it "コメントが問題なく投稿されるか" do
-        fill_in "comment[comment]", with: "とてもおいしいです。"
+      it "コメントが問題なく投稿されて、フラッシュメッセージが表示されるか" do
+        fill_in "コメント投稿", with: "とてもおいしいです。"
         click_button "投稿"
-        expect(Shop.comment.last.comment).to eq("とてもおいしいです")
+        expect(page).to have_content "コメントを投稿しました"
+        expect(page).to have_content "とてもおいしいです。"
+      end
+      it "フォームが空欄の場合、コメントが投稿されずフラッシュメッセージが表示されるか" do
+        fill_in "コメント投稿", with: ""
+        click_button "投稿"
+        expect(page).to have_content "コメントが入力されていません"
+      end
+    end
+    context "リンクボタンの確認" do
+      it "「店舗一覧へ戻る」のリンクボタンが表示されているか" do
+        expect(page).to have_content "店舗一覧へ戻る"
+      end
+      it "「店舗一覧へ戻る」のリンクボタンを押下すると、店舗一覧ページへ遷移するか" do
+        click_link "店舗一覧へ戻る"
+        expect(page).to have_current_path shops_path
+      end
+    end
+  end
+  describe "店舗一覧画面のテスト" do
+    before do
+      sign_in user
+      visit shops_path
+    end
+    context "urlの表示確認" do
+      it "urlの表記が/shopsになっているか" do
+        expect(current_path).to eq("/shops")
       end
     end
   end
