@@ -201,5 +201,33 @@ describe "店舗登録のテスト" do
         expect(current_path).to eq("/shops")
       end
     end
+    context "店舗一覧画面の表示確認" do
+      it "ジャンル選択ボックスが表示されているか" do
+        expect(page).to have_selector ".search-genre-select-box"
+      end
+      it "ジャンル別検索ボタンが表示されているか" do
+        expect(page).to have_button "検索"
+      end
+      it "投稿された各店舗の情報が表示されているか" do
+        expect(page).to have_content Shop.last.name
+        expect(page).to have_content Shop.last.location
+        expect(page).to have_content Shop.last.genre.name
+        expect(page).to have_content Shop.last.business_start_hours.strftime("%H:%M")
+        expect(page).to have_content Shop.last.business_finish_hours.strftime("%H:%M")
+        expect(page).to have_content Shop.last.created_at.strftime("%Y/%m/%d")
+      end
+      it "ratyが問題なく表示されているか" do
+        expect(page).to have_selector "#average-raty-atmosphere-1"
+        expect(page).to have_selector "#average-raty-servise-1"
+        expect(page).to have_selector "#average-raty-taste-1"
+        expect(page).to have_selector "#average-raty-congestion-1"
+      end
+      it "お気に入り登録ボタンが表示されているか" do
+        expect(page).to have_link "お気に入り登録"
+      end
+      it "店舗詳細ボタンが表示されているか" do
+        expect(page).to have_link "店舗詳細"
+      end
+    end
   end
 end
