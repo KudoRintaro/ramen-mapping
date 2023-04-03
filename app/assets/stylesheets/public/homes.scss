@@ -5,9 +5,9 @@
 /*トップページレイアウト*/
 /*画像部分*/
 .swiper{
-  width: 40%;
-  height: 400px;
-  margin: 60px auto auto auto;
+  position: relative;
+  width: 70%;
+  height: 600px;
   opacity: 0.5;
   background-color: black;
 }
@@ -22,21 +22,27 @@
 }
 
 .swiper-slide{
-  position: relative;
   width: 100%;
   height: 100%;
   margin: auto;
-}
-
-.swiper-slide h3{
-  color: black;
-  text-align: center;
 }
 
 .swiper-image-size{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.swiper-text{
+  display: block;
+  position: absolute;
+  top: 270px;
+  left: 160px;
+  color: white;
+  font-family: "HG正楷書体-PRO";
+  font-weight: bold;
+  font-size: 50px;
+  z-index: 2;
 }
 
 .withdraw-flash-message{

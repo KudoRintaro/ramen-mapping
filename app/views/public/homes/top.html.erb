@@ -8,18 +8,14 @@
 <%#トップページ表示画像%>
 <%#javascript実装予定%>
 <div class="swiper">
+ <h3 class="swiper-text">お気に入りのラーメンショップを見つけよう</h3>
  <div class="swiper-wrapper">
   <% @shops.each do |shop| %>
    <div class="swiper-slide">
-    <%= image_tag  shop.image, class:"swiper-image-size" %>
-    <div class="image-text">お気に入りのラーメンショップを見つけよう</div>
+    <%= image_tag shop.image, class:"swiper-image-size" %>
    </div>
   <% end %>
  </div>
-
-<div class="swiper-pagination"></div>
-<div class="swiper-button-prev"></div>
-<div class="swiper-button-next"></div>
 </div>
 
 <%#ログインボタン各種%>

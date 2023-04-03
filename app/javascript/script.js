@@ -1,12 +1,9 @@
 const opt = {
   loop: true,
-  pagination: {
-    el: '.swiper-pagination',
+  autoplay: {
+    delay: 0,
   },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
+  speed: 2500,
 }
 
 $(document).on('turbolinks:load', function() {
