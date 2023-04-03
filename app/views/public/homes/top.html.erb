@@ -11,7 +11,8 @@
  <div class="swiper-wrapper">
   <% @shops.each do |shop| %>
    <div class="swiper-slide">
-    <%= image_tag shop.image, class:"swiper-image-size" %>
+    <%= image_tag  shop.image, class:"swiper-image-size" %>
+    <div class="image-text">お気に入りのラーメンショップを見つけよう</div>
    </div>
   <% end %>
  </div>
