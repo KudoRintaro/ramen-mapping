@@ -106,4 +106,6 @@
     <%= link_to "店舗詳細", shop_path(favorite.shop.id), data: {"turbolinks" => false}, class:"favorite-shops-link-button" %>
    </div>
   </div>
-<% end %>
+ <% end %>
+ 
+ <%= paginate @shops %>

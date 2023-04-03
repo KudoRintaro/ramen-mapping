@@ -45,7 +45,7 @@ class Public::ShopsController < ApplicationController
   end
 
   def favorite
-    @shops=current_user.favorite_shops
+    @shops=current_user.favorite_shops.page(params[:page]).per(3)
   end
 
   private
