@@ -24,5 +24,5 @@ window.raty = function(elem,opt) {
 }
 
 $(function(){
-  $(".image-box").sideDown();
+  $(".image-box").slideDown();
 })
