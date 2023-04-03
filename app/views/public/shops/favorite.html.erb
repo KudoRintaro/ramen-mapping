@@ -2,7 +2,6 @@
 
 <%#お気に入り登録店舗一覧%>
 <% @shops.each do |favorite| %>
- <% if current_user.id=favorite.shop.user_id %>
   <div class="favorite-shops-card">
    <div class="favorite-shops-image">
     <%= image_tag favorite.shop.image, class: "index-image" %>
@@ -107,5 +106,4 @@
     <%= link_to "店舗詳細", shop_path(favorite.shop.id), data: {"turbolinks" => false}, class:"favorite-shops-link-button" %>
    </div>
   </div>
- <% end %>
 <% end %>
