@@ -4,7 +4,7 @@ class Shop < ApplicationRecord
 
   belongs_to :user
   belongs_to :genre
-  has_many :favorited_shops, dependent: :destroy
+  has_many :favorite_shops, dependent: :destroy
   has_many :shop_comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
 

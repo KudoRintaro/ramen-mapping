@@ -7,7 +7,7 @@ class Public::FavoriteShopsController < ApplicationController
   end
 
   def destroy
-     shop = Shop.find(params[:shop_id])
+    shop = Shop.find(params[:shop_id])
     favorite_shop=FavoriteShop.find_by(user_id: current_user.id, shop_id: shop.id)
     favorite_shop.destroy
     redirect_to request.referer

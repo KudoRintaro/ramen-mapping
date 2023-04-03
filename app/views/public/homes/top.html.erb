@@ -7,11 +7,21 @@
 
 <%#トップページ表示画像%>
 <%#javascript実装予定%>
-<div class="image-box">
- <div class="image-box-text">
-  <P>あなたのお気に入りのラーメンショップを探そう</P>
+<div class="swiper">
+ <div class="swiper-wrapper">
+  <% @shops.each do |shop| %>
+   <div class="swiper-slide">
+    <%= image_tag shop.image, class:"swiper-image-size" %>
+   </div>
+  <% end %>
+ <P>お気に入りのラーメンショップを見つけよう</P>
  </div>
+
+<div class="swiper-pagination"></div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
 </div>
+
 <%#ログインボタン各種%>
 <div class="login-list">
  <% if user_signed_in? %>

@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-    @shops=Shop.all
+    @shopspage=current_user.shops.page(params[:page]).per(3)
   end
 
   def comments

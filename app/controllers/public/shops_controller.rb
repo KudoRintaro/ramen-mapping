@@ -41,7 +41,7 @@ class Public::ShopsController < ApplicationController
   def destroy
     shop=Shop.find(params[:id])
     shop.destroy
-    redirect_to request.referer
+    redirect_to users_shops_path
   end
 
   def favorite

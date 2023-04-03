@@ -1,8 +1,7 @@
 <h2 class="user-shops-index-title">登録した店舗一覧</h2>
 
 <%#ログイン中のユーザが登録した店舗一覧%>
-<% @shops.each do |shop| %>
- <% if current_user.id==shop.user.id %>
+<% @shopspage.each do |shop| %>
   <div class="user-shops-index-card">
    <% if shop.image.persisted? %>
    <div class="user-shops-index-image">
@@ -110,5 +109,5 @@
     <%= link_to "編集する", edit_shop_path(shop.id), class:"user-shops-index-edit-link-button" %>
    </div>
   </div>
- <% end %>
 <% end %>
+<%= paginate @shopspage %>

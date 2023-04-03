@@ -32,6 +32,7 @@
       <td><%= f.file_field :image, accept: "image/*" %></td>
     </tr>
   </table>
-
   <%= f.submit "変更", class:"user-shop-edit-button" %>
   <% end %>
+
+  <%= link_to "店舗を削除する", shop_path, method: :delete, data: {confirm: "本当に削除しますか?"}, class:"user-shop-delete-button" %>
