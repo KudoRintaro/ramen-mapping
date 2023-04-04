@@ -12,6 +12,13 @@
   background-color: black;
 }
 
+@media screen and(max-width: 480px){
+  .swiper{
+    width: 80%;
+    height: 300px;
+  }
+}
+
 .swiper-wrapper{
   width: 100%;
 }
@@ -43,6 +50,14 @@
   font-weight: bold;
   font-size: 50px;
   z-index: 2;
+}
+
+@media screen and(max-width: 480px){
+  .swiper-text{
+    top: 140px;
+    left: 40px;
+    font-size: 15px;
+  }
 }
 
 .withdraw-flash-message{
