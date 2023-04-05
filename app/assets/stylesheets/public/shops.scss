@@ -66,8 +66,9 @@
 
 @media screen and (max-width: 480px){
   .index-shop-image{
-    width: 100px;
-    height: 100px;
+    margin-left: 2px;
+    width: 200px;
+    height: 80px;
   }
 }
 
@@ -78,18 +79,19 @@
 
 @media screen and (max-width: 480px){
   .index-shop-info-table{
-    width: 100px;
+    width: 250px;
+    margin-left: 4px;
     font-size: 1px;
   }
 }
 
 .index-shop-rate-table{
-  padding-left: 100px;
+  padding-left: 300px;
 }
 
 @media screen and (max-width: 480px){
   .index-shop-rate-table{
-    padding-left: 30px;
+    padding-left: 3px;
     font-size: 1px;
   }
 }
