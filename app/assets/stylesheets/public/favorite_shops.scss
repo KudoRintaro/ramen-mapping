@@ -25,3 +25,12 @@
   background-color: #FF6600;
   border: 3px solid black;
 }
+
+@media screen and (max-width: 480px){
+  .favorite-post-button{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+  }
+}
