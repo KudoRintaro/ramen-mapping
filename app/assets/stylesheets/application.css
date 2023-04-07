@@ -103,7 +103,7 @@ header{
   .flash-message-text{
     display: block;
     text-align: center;
-    font-size: 1px;
+    font-size: 5px;
   }
 }
 
@@ -172,7 +172,7 @@ li{
 @media screen and (max-width: 480px){
   .list-box{
     width: 65px;
-    font-size: 1px;
+    font-size: 5px;
     font-weight: bold;
   }
 }
