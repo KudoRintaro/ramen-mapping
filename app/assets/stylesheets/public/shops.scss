@@ -91,6 +91,7 @@
 
 @media screen and (max-width: 480px){
   .index-shop-rate-table{
+    width: 70%;
     padding-left: 3px;
     font-size: 1px;
   }
@@ -105,8 +106,10 @@
 
 @media screen and (max-width: 480px){
   .index-shop-button{
-    width: 30px;
+    width: 50px;
     height: 20px;
+    margin-top: 75px;
+    margin-right: 3px;
     font-size: 1px;
   }
 }
@@ -127,9 +130,12 @@
 
 @media screen and (max-width: 480px){
   .index-shop-link-button{
-    width: 80px;
+    width: 50px;
+    margin-top: 10px;
     height: 30px;
     line-height: 30px;
+    border: 1px solid black;
+    font-weight: bold;
   }
 }
 //会員未登録者の表示画面のボタン配置
@@ -365,4 +371,11 @@
   font-weight: bold;
   background-color: #FF3300;
   border: 2px solid black;
+}
+
+//raty★表示部レスポンシブ化
+@media screen and (max-width: 480px){
+  .index-shop-rate-table img{
+    width: 10px;
+  }
 }

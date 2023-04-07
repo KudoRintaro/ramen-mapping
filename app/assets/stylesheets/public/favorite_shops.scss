@@ -28,9 +28,30 @@
 
 @media screen and (max-width: 480px){
   .favorite-post-button{
-    width: 80px;
+    width: 50px;
     height: 30px;
     line-height: 30px;
     font-weight: bold;
+    font-size: 0;
+    border: 1px solid black;
+  }
+
+  .favorite-post-button:before{
+    font-size: 1px;
+    content: "登録";
+  }
+
+  .favorite-delete-button{
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 0;
+    border: 1px solid orange;
+  }
+
+  .favorite-delete-button:before{
+    font-size: 1px;
+    content: "解除";
   }
 }
