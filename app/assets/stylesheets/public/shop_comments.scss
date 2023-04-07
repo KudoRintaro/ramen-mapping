@@ -50,7 +50,9 @@
 
 @media screen and (max-width: 480px){
   .comment-form-box{
-    width: 30%;
+    width: 100%;
+    margin-top: 100px;
+    padding-top: 50px;
   }
 }
 
@@ -69,6 +71,15 @@
   border: 3px solid black;
 }
 
+@media screen and (max-width: 480px){
+  .comment-form{
+    display: block;
+    width: 70%;
+    height: 60px;
+    margin: auto;
+  }
+}
+
 .comment-form:focus{
   border: 7px solid #FF6600;
 }
@@ -84,6 +95,15 @@
   background-color: #FF6600;
   border: 2px solid black;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 480px){
+  .comment-post-button{
+    display: block;
+    width: 100px;
+    margin: auto;
+    margin-top: 10px;
+  }
 }
 
 .comment-flash-message{
