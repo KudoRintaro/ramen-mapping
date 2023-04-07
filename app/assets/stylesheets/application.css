@@ -114,7 +114,7 @@ header{
 }
 
 /*メニューバーレイアウト*/
-nav{
+header nav{
   margin-top: 10px;
   margin-bottom: 0;
   margin-left: auto;
@@ -122,7 +122,7 @@ nav{
 }
 
 @media screen and (max-width: 480px){
-  nav{
+  header nav{
     display: block;
     width: 90%;
     height: 40px;
@@ -191,9 +191,20 @@ li{
 .pagination {
   display: flex;
   padding-left: 0;
-  margin: 20px 0;
-  border-radius: 4px;
+  margin: 30px 0;
+  border-radius: 3px;
   justify-content: center;
+}
+
+@media screen and (max-width: 480px){
+  .index-shop-pagination{
+    width: 100%;
+  }
+ .pagination{
+   margin: auto;
+   width: 90%;
+   margin-top: 30px;
+ }
 }
 
 .pagination > li {
