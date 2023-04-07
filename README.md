@@ -42,7 +42,12 @@
 - JSライブラリ：jQuery
 - CDN：Swiper
 - IDE：Cloud9
+- CI/CD：GitHub Actions
 
 ## 使用素材
 - Google Maps API
 - raty
+- 
+
+## レスポンシブ対応化
+- 現在実装中(ブレイクポイント480px)

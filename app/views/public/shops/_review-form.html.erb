@@ -2,7 +2,7 @@
  <%= form_with url: shop_reviews_path(shop.id), method: :post do |f| %>
   <div class="show-shop-review-card">
   <h2 class="show-shop-review-title">レビュー投稿</h2>
-   <table class="show-shop-rate-table">
+   <table class="show-shop-rate-post-table">
     <tr>
      <td><%= f.label :atmosphere_rate, "お店の雰囲気" %></td>
      <td>
@@ -94,7 +94,7 @@
  <%= form_with url: shop_reviews_path(shop.id), method: :post do |f| %>
   <div class="show-shop-review-card">
   <h2 class="show-shop-review-title">レビュー投稿</h2>
-   <table class="show-shop-rate-table">
+   <table class="show-shop-rate-post-table">
     <tr>
      <td><%= f.label :atmosphere_rate, "お店の雰囲気" %></td>
      <td>
