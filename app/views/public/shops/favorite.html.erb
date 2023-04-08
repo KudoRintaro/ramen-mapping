@@ -3,6 +3,11 @@
 <%#お気に入り登録店舗一覧%>
 <% @shops.each do |favorite| %>
   <div class="favorite-shops-card">
+   <% if @today!=favorite.shop.holiday.to_s&&@time.between?(favorite.shop.business_start_hours.strftime("%H:%M"), favorite.shop.business_finish_hours.strftime("%H:%M")) %>
+    <p class="shop-sales-text">営業中</p>
+   <% else %>
+    <p class="shop-closed-text">休業中</p>
+   <% end %>
    <div class="favorite-shops-image">
     <%= image_tag favorite.shop.image, class: "index-image" %>
    </div>
@@ -107,5 +112,5 @@
    </div>
   </div>
  <% end %>
- 
+
  <%= paginate @shops %>

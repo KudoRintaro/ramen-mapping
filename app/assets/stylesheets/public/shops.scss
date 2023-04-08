@@ -141,7 +141,7 @@
 }
 
 //店舗営業ステータス表示部
-.index-shop-sales-text{
+.shop-sales-text{
   display: block;
   width: 4%;
   height: 30px;
@@ -155,7 +155,7 @@
   border-right: 2px solid black;
 }
 
-.index-shop-closed-text{
+.shop-closed-text{
   display: block;
   width: 4%;
   height: 30px;
@@ -170,13 +170,13 @@
 }
 
 @media screen and (max-width: 480px){
-  .index-shop-sales-text{
+  .shop-sales-text{
     width: 20px;
     height: 100px;
     text-align: center;
   }
 
-  .index-shop-closed-text{
+  .shop-closed-text{
     width: 20px;
     height: 100px;
     text-align: center;
@@ -299,7 +299,7 @@
 }
 
 .show-shop-rate-table{
-  padding-left: 100px;
+  padding-left: 30px;
 }
 
 @media screen and (max-width: 480px){
@@ -452,7 +452,7 @@
 }
 
 .favorite-shops-rate-table{
-  padding-left: 100px;
+  padding-left: 30px;
 }
 
 .favorite-shops-button{

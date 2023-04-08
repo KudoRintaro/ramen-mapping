@@ -51,6 +51,11 @@ function initMap(){
 <h2 class="show-shop-title">店舗詳細</h2>
 
   <div class="show-shop-card">
+   <% if @today!=@shop.holiday.to_s&&@time.between?(@shop.business_start_hours.strftime("%H:%M"), @shop.business_finish_hours.strftime("%H:%M")) %>
+    <p class="shop-sales-text">営業中</p>
+   <% else %>
+    <p class="shop-closed-text">休業中</p>
+   <% end %>
    <div class="show-shop-image">
     <%= image_tag @shop.image, class: "show-image" %>
    </div>

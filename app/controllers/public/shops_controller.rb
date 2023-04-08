@@ -22,13 +22,14 @@ class Public::ShopsController < ApplicationController
     day=Date.today.wday
     days=["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"]
     @today=days[day].to_s
-    
+
     @time=Time.zone.now.strftime("%H:%M")
   end
 
   def show
     @shop=Shop.find(params[:id])
     @comments=@shop.shop_comments
+    @time=Time.zone.now.strftime("%H:%M")
   end
 
   def edit
@@ -52,6 +53,7 @@ class Public::ShopsController < ApplicationController
 
   def favorite
     @shops=current_user.favorite_shops.page(params[:page]).per(3)
+    @time=Time.zone.now.strftime("%H:%M")
   end
 
   private
