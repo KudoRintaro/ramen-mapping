@@ -21,7 +21,9 @@ class Public::ShopsController < ApplicationController
 
     day=Date.today.wday
     days=["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"]
-    @day=days[day].to_s
+    @today=days[day].to_s
+    
+    @time=Time.zone.now.strftime("%H:%M")
   end
 
   def show

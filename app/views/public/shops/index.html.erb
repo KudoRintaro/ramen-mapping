@@ -81,6 +81,11 @@ let map
 <% if Shop.exists? %>
 <% @shopspage.each do |shop| %>
   <div class="index-shop-card">
+   <% if @today!=shop.holiday.to_s&&@time.between?(shop.business_start_hours.strftime("%H:%M"), shop.business_finish_hours.strftime("%H:%M")) %>
+    <p class="index-shop-sales-text">営業中</p>
+   <% else %>
+    <p class="index-shop-closed-text">休業中</p>
+   <% end %>
    <div class="index-shop-image">
     <%= image_tag shop.image, class: "index-image" %>
    </div>
