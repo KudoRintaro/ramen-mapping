@@ -26,6 +26,14 @@
      <td>営業時間</td>
      <td><%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></td>
     </tr>
+    <tr>
+     <td>休業日</td>
+     <td><%= shop.holiday %></td>
+    </tr>
+    <tr>
+     <td>登録日</td>
+     <td><%= shop.created_at.strftime("%Y/%m/%d") %></td>
+    </tr>
    </table>
    <%#店舗評価表示部%>
    <table class="user-shops-index-rate-table">

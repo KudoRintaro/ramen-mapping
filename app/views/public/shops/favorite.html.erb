@@ -29,6 +29,14 @@
      <td>営業時間</td>
      <td><%= favorite.shop.business_start_hours.strftime("%H:%M") %>~<%= favorite.shop.business_finish_hours.strftime("%H:%M") %></td>
     </tr>
+    <tr>
+     <td>休業日</td>
+     <td><%= favorite.shop.holiday %></td>
+    </tr>
+    <tr>
+     <td>登録日</td>
+     <td><%= favorite.shop.created_at.strftime("%Y/%m/%d") %></td>
+    </tr>
    </table>
    <%#店舗評価表示部%>
    <table class="favorite-shops-rate-table">
