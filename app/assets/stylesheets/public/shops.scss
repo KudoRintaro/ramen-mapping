@@ -47,12 +47,13 @@
   margin-top: 50px;
   display: flex;
   background-color: white;
+  border: 1px solid black;
 }
 
 @media screen and (max-width: 480px){
   .index-shop-card{
     width: 90%;
-    height: 150px;
+    height: 200px;
   }
 }
 
@@ -108,7 +109,7 @@
   .index-shop-button{
     width: 50px;
     height: 20px;
-    margin-top: 75px;
+    margin-top: 120px;
     margin-right: 3px;
     font-size: 5px;
   }
@@ -214,12 +215,13 @@
   margin-top: 50px;
   display: flex;
   background-color: white;
+  border: 1px solid black;
 }
 
 @media screen and (max-width: 480px){
   .show-shop-card{
     width: 90%;
-    height: 150px;
+    height: 200px;
   }
 }
 
@@ -274,7 +276,7 @@
 @media screen and (max-width: 480px){
   .show-shop-favorite-button{
     width: 50px;
-    margin-top: 110px;
+    margin-top: 160px;
     margin-right: 5px;
     height: 30px;
     line-height: 30px;
@@ -284,9 +286,12 @@
 
 .show-shop-review-card{
   width: 500px;
+  height: 250px;
   margin-top: 100px;
+  margin-bottom: 100px;
   margin-left: 285.453px;
   background-color: white;
+  border: 1px solid black;
 }
 
 @media screen and (max-width: 480px){
