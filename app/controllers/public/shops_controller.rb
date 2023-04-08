@@ -19,7 +19,7 @@ class Public::ShopsController < ApplicationController
     @shops=Shop.all
     @shopspage=Shop.all.page(params[:page]).per(3)
 
-    day=Date.today.wday
+    day=Time.zone.today.wday
     days=["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"]
     @today=days[day].to_s
 
@@ -29,6 +29,11 @@ class Public::ShopsController < ApplicationController
   def show
     @shop=Shop.find(params[:id])
     @comments=@shop.shop_comments
+
+    day=Time.zone.today.wday
+    days=["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"]
+    @today=days[day].to_s
+
     @time=Time.zone.now.strftime("%H:%M")
   end
 
