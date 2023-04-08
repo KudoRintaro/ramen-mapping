@@ -19,6 +19,12 @@ class Public::GenresController < ApplicationController
     @genres=Genre.all
     @genre=Genre.find(params[:id])
     @genrespage=@genre.shops.page(params[:page]).per(3)
+
+    day=Time.zone.today.wday
+    days=["日曜日","月曜日","火曜日","水曜日","木曜日","金曜日","土曜日"]
+    @today=days[day].to_s
+
+    @time=Time.zone.now.strftime("%H:%M")
   end
 
   private
