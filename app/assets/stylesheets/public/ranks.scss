@@ -1,3 +1,16 @@
 // Place all the styles related to the public/ranks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//ランキング表示部レイアウト
+.ranking-number-box{
+  width: 70%;
+  margin: auto;
+}
+
+.ranking-number{
+  display: block;
+  width: 200px;
+  background-color: #FF6600;
+  text-align: center;
+}
