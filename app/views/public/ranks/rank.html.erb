@@ -1,0 +1,338 @@
+<%#googlemapapi表示部%>
+<div id="map"></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 100%;
+}
+@media screen and (max-width: 480px){
+  #map {
+  height: 300px;
+  width: 100%;
+ }
+}
+</style>
+
+<script>
+let map
+
+ function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+   center: {lat: 35.68123620000100, lng:139.8471248},
+   zoom: 11,
+  });
+
+  let markers=[];
+  let infowindows=[];
+
+
+ <% @shops.each do |shop| %>
+  (function(){
+   let contentString =
+    "<h3><%= shop.name %></h3>"+
+    "<div><%= shop.location %></div>"+
+    "<div>ジャンル：<%= shop.genre.name %></div>"+
+    "<div>営業時間：<%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></div>";
+    let infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+   let marker = new google.maps.Marker({
+    position:{lat: <%= shop.latitude %>, lng: <%= shop.longitude %>},
+    map: map,
+    title: contentString
+   });
+
+   markers.push(marker);
+   infowindows.push(infowindow);
+
+   marker.addListener('click', function(){
+      closeAllInfoWindows();
+      infowindow.open(map, marker);
+   });
+
+   marker.addListener('dblclick', function() {
+      window.location.href = '<%= shop_path(shop) %>';
+   });
+
+  })();
+
+ <% end %>
+
+ function closeAllInfoWindows(){
+  for(let i=0; i<infowindows.length; i++){
+   infowindows[i].close();
+  }
+ }
+ }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["API_KEY"] %>&callback=initMap" async defer></script>
+
+<h2 class="index-shop-title">人気順</h2>
+
+<div class="index-shop-genre-search-form">
+ <%= render "public/searches/genre-search" %>
+</div>
+<% @shop_favorite_ranks.each do |shop| %>
+  <div class="index-shop-card">
+   <% if @today!=shop.holiday.to_s&&@time.between?(shop.business_start_hours.strftime("%H:%M"), shop.business_finish_hours.strftime("%H:%M")) %>
+    <p class="shop-sales-text">営業中</p>
+   <% else %>
+    <p class="shop-closed-text">休業中</p>
+   <% end %>
+   <div class="index-shop-image">
+    <%= image_tag shop.image, class: "index-image" %>
+   </div>
+   <%#店舗情報表示部%>
+   <table class="index-shop-info-table">
+    <tr>
+     <td>店名</td>
+     <td><%= shop.name %></td>
+    </tr>
+    <tr>
+     <td>所在地</td>
+     <td><%= shop.location %></td>
+    </tr>
+    <tr>
+     <td>ジャンル</td>
+     <td><%= shop.genre.name %></td>
+    </tr>
+    <tr>
+     <td>営業時間</td>
+     <td><%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></td>
+    </tr>
+    <tr>
+     <td>休業日</td>
+     <td><%= shop.holiday %></td>
+    </tr>
+    <tr>
+     <td>登録日</td>
+     <td><%= shop.created_at.strftime("%Y/%m/%d") %></td>
+    </tr>
+   </table>
+   <%#店舗評価表示部%>
+   <table class="index-shop-rate-table">
+    <tr>
+     <td>お店の雰囲気</td>
+     <td>
+      <div id="average-raty-atmosphere-<%= shop.id %>"></div>
+      <script>
+       let elem_atmosphere_<%= shop.id %> = document.querySelector('#average-raty-atmosphere-<%= shop.id %>');
+       let opt_atmosphere_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_atmosphere_<%= shop.id %>,opt_atmosphere_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>接客</td>
+     <td>
+      <div id="average-raty-servise-<%= shop.id %>"></div>
+      <script>
+       let elem_servise_<%= shop.id %> = document.querySelector('#average-raty-servise-<%= shop.id %>');
+       let opt_servise_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:servise_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_servise_<%= shop.id %>,opt_servise_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>味</td>
+     <td>
+      <div id="average-raty-taste-<%= shop.id %>"></div>
+      <script>
+       let elem_taste_<%= shop.id %> = document.querySelector('#average-raty-taste-<%= shop.id %>');
+       let opt_taste_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:taste_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_taste_<%= shop.id %>,opt_taste_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>混雑度</td>
+     <td>
+      <div id="average-raty-congestion-<%= shop.id %>"></div>
+      <script>
+       let elem_congestion_<%= shop.id %> = document.querySelector('#average-raty-congestion-<%= shop.id %>');
+       let opt_congestion_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:congestion_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_congestion_<%= shop.id %>,opt_congestion_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+   <%#ボタン%>
+   <div class="index-shop-button">
+    <%#お気に入りボタンは会員登録者のみ表示%>
+    <% if user_signed_in? %>
+     <%= render "public/favorite_shops/favorite", shop: shop %>
+     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button" %>
+    <% else %>
+     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button-guest" %>
+    <% end %>
+   </div>
+  </div>
+<% end %>
+
+<% @shops.each do |shop| %>
+ <% if shop.favorite_shops.count==0 %>
+  <div class="index-shop-card">
+   <% if @today!=shop.holiday.to_s&&@time.between?(shop.business_start_hours.strftime("%H:%M"), shop.business_finish_hours.strftime("%H:%M")) %>
+    <p class="shop-sales-text">営業中</p>
+   <% else %>
+    <p class="shop-closed-text">休業中</p>
+   <% end %>
+   <div class="index-shop-image">
+    <%= image_tag shop.image, class: "index-image" %>
+   </div>
+   <%#店舗情報表示部%>
+   <table class="index-shop-info-table">
+    <tr>
+     <td>店名</td>
+     <td><%= shop.name %></td>
+    </tr>
+    <tr>
+     <td>所在地</td>
+     <td><%= shop.location %></td>
+    </tr>
+    <tr>
+     <td>ジャンル</td>
+     <td><%= shop.genre.name %></td>
+    </tr>
+    <tr>
+     <td>営業時間</td>
+     <td><%= shop.business_start_hours.strftime("%H:%M") %>~<%= shop.business_finish_hours.strftime("%H:%M") %></td>
+    </tr>
+    <tr>
+     <td>休業日</td>
+     <td><%= shop.holiday %></td>
+    </tr>
+    <tr>
+     <td>登録日</td>
+     <td><%= shop.created_at.strftime("%Y/%m/%d") %></td>
+    </tr>
+   </table>
+   <%#店舗評価表示部%>
+   <table class="index-shop-rate-table">
+    <tr>
+     <td>お店の雰囲気</td>
+     <td>
+      <div id="average-raty-atmosphere-<%= shop.id %>"></div>
+      <script>
+       let elem_atmosphere_<%= shop.id %> = document.querySelector('#average-raty-atmosphere-<%= shop.id %>');
+       let opt_atmosphere_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:atmosphere_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_atmosphere_<%= shop.id %>,opt_atmosphere_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>接客</td>
+     <td>
+      <div id="average-raty-servise-<%= shop.id %>"></div>
+      <script>
+       let elem_servise_<%= shop.id %> = document.querySelector('#average-raty-servise-<%= shop.id %>');
+       let opt_servise_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:servise_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_servise_<%= shop.id %>,opt_servise_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>味</td>
+     <td>
+      <div id="average-raty-taste-<%= shop.id %>"></div>
+      <script>
+       let elem_taste_<%= shop.id %> = document.querySelector('#average-raty-taste-<%= shop.id %>');
+       let opt_taste_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:taste_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_taste_<%= shop.id %>,opt_taste_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+    <tr>
+     <td>混雑度</td>
+     <td>
+      <div id="average-raty-congestion-<%= shop.id %>"></div>
+      <script>
+       let elem_congestion_<%= shop.id %> = document.querySelector('#average-raty-congestion-<%= shop.id %>');
+       let opt_congestion_<%= shop.id %> = {
+         size: 36,
+         starOff: "<%= asset_path("star-off.png") %>",
+         starOn: "<%= asset_path("star-on.png") %>",
+         starHalf: "<%= asset_path("star-half.png") %>",
+         half: true,
+         score: <%= shop.reviews.average(:congestion_rate).to_f.round(1) %>,
+         readOnly: true,
+       };
+       raty(elem_congestion_<%= shop.id %>,opt_congestion_<%= shop.id %>);
+      </script>
+     </td>
+    </tr>
+   </table>
+   <%#ボタン%>
+   <div class="index-shop-button">
+    <%#お気に入りボタンは会員登録者のみ表示%>
+    <% if user_signed_in? %>
+     <%= render "public/favorite_shops/favorite", shop: shop %>
+     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button" %>
+    <% else %>
+     <%= link_to "店舗詳細", shop_path(shop.id), data: {"turbolinks" => false}, class:"index-shop-link-button-guest" %>
+    <% end %>
+   </div>
+  </div>
+ <% end %>
+<% end %>

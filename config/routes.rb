@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:new, :create, :show]
     get "genre_search" => "searches#genre_search"
     get "search" => "searches#name_search"
+    get "rank" => "ranks#rank"
   end
 #管理者側ルーティング
   namespace :admin do
