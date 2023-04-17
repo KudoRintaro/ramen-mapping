@@ -27,11 +27,23 @@
   font-weight: bold;
 }
 
+.search-form-button:hover{
+  color: orange;
+  background-color: white;
+  border-color: orange;
+}
+
 @media screen and (max-width: 480px){
  .search-form-button{
    width: 50px;
    height: 40px;
  }
+}
+
+.search-form-button:hover{
+  color: orange;
+  background-color: white;
+  border-color: orange;
 }
 
 .name-search-form{

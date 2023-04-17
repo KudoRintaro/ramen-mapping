@@ -1,4 +1,6 @@
 class Public::RanksController < ApplicationController
+  before_action :authenticate_user!
+
   def rank
     @shops=Shop.all
     @shop_favorite_ranks=Shop.find(FavoriteShop.group(:shop_id).order("count(shop_id) desc").pluck(:shop_id))
